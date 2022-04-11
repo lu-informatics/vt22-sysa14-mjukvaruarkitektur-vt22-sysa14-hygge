@@ -28,7 +28,7 @@ public class HyggeServlet extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		PrintWriter out = response.getWriter();
 		out.println("<!DOCTYPE html><html><head>");
 		out.println("<title>Test</title>");

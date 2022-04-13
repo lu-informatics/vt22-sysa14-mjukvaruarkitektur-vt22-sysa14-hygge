@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import hygge.ejb.ics.Industry;
+import hygge.ejb.ics.Education;
 import hygge.facade.ics.FacadeLocal;
 
 /**
  * Servlet implementation class HyggeAdminControl
  */
-@WebServlet("/HyggeAdminControl/*")
-public class HyggeAdminControl extends HttpServlet {
+@WebServlet("/Educations/*")
+public class Educations extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	@EJB
@@ -26,11 +26,10 @@ public class HyggeAdminControl extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HyggeAdminControl() {
+    public Educations() {
         super();
         // TODO Auto-generated constructor stub
     }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -49,11 +48,10 @@ public class HyggeAdminControl extends HttpServlet {
 			return;
 		}
 		
-		String name = splits[1];
-		Industry industry = facade.findByIndustryName(name);
-		sendAsJson(response,industry);
+		String id = splits[1];
+			Education education = facade.findByEducationName(id);
+			sendEducationAsJson(response,education);
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -76,15 +74,16 @@ public class HyggeAdminControl extends HttpServlet {
 		// TODO Auto-generated method stub
 	}
 	
-	private void sendAsJson(HttpServletResponse response, Industry industry)throws IOException{
+	private void sendEducationAsJson(HttpServletResponse response, Education education)throws IOException{
 		PrintWriter out = response.getWriter();
 		response.setContentType("application/json");
-		if (industry!=null) {
+		if (education!=null) {
 			out.print("{\"name\":");
-			out.print("\"" + industry.getIndustryName() + "\"");
-			out.print(",\"field\":");
-			out.print("\"" +industry.getField()+"\"}");
+			out.print("\"" + education.getEducationName() + "\"");
+			out.print(",\"locale\":");
+			out.print("\"" +education.getLocale()+"\"}");
 		}else out.print("{}");
 		out.flush();
 	}
 }
+

@@ -14,6 +14,7 @@
 	Industry i = (Industry) request.getAttribute("industry");
 	%>
 	<h2>Industry:</h2>
+	<form action="/HyggeClientProject/IndustryServlet" method="post">
 	<p>
 		<input type="text" name="txtIndustryName"
 			value="<%=i.getIndustryName()%>">
@@ -22,8 +23,6 @@
 		<input type="text" name="txtField" value="<%=i.getField()%>">
 	</p>
 	<p><%=new java.util.Date()%></p>
-
-	<form action="/HyggeClientProject/IndustryServlet" method="post">
 		<input type="submit" name="submit" value="Update"> <input
 			name="operation" value="updateindustry" type="hidden">
 	</form>

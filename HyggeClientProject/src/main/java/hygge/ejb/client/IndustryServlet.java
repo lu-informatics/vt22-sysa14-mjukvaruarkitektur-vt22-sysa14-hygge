@@ -21,7 +21,7 @@ public class IndustryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@EJB
 	FacadeLocal facade;
-
+	Industry currentIndustry;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -36,6 +36,8 @@ public class IndustryServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String name;
+		String field;
 		String url = null;
 
 		// Get hidden field
@@ -45,8 +47,9 @@ public class IndustryServlet extends HttpServlet {
 
 		case "showindustry":
 			System.out.println("IndustryServlet-showindustry");
-			String name = request.getParameter("txtIndustryName");
+			name = request.getParameter("txtIndustryName");
 			Industry i = facade.findByIndustryName(name);
+			currentIndustry=i;
 			request.setAttribute("industry", i);
 			url = "/ShowIndustry.jsp";
 			break;
@@ -54,6 +57,20 @@ public class IndustryServlet extends HttpServlet {
 		case "searchindustry":
 			System.out.println("IndustryServlet-searchindustry");
 			url = "/SearchIndustry.jsp";
+			break;
+			
+		case "updateindustry":
+			System.out.println("IndustryServlet-updateindustry");
+			
+			// TODO: Find out why these two lines break everything
+			name = request.getParameter("txtIndustryName");
+			field = request.getParameter("txtField");
+			currentIndustry.setIndustryName(name);
+			currentIndustry.setField(field);
+			facade.updateIndustry(currentIndustry);
+
+			request.setAttribute("industry", currentIndustry);
+			url = "/ShowIndustry.jsp";
 			break;
 
 		default: // default landing page

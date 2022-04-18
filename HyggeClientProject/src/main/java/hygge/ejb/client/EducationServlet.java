@@ -21,6 +21,7 @@ public class EducationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@EJB
 	FacadeLocal facade;
+	Education currentEducation;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -36,6 +37,9 @@ public class EducationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		Education e;
+		String name;
+		String locale;
 		String url = null;
 		// Get hidden field
 		String operation = request.getParameter("operation");
@@ -44,8 +48,8 @@ public class EducationServlet extends HttpServlet {
 
 		case "showeducation":
 			System.out.println("EducationServlet-showeducation");
-			String name = request.getParameter("txtEducationName");
-			Education e = facade.findByEducationName(name);
+			name = request.getParameter("txtEducationName");
+			e = facade.findByEducationName(name);
 			request.setAttribute("education", e);
 			url = "/ShowEducation.jsp";
 			break;
@@ -55,6 +59,18 @@ public class EducationServlet extends HttpServlet {
 			url = "/SearchEducation.jsp";
 			break;
 
+		case "updateeducation":
+			System.out.println("EducationServlet-updateeducation");
+			name = request.getParameter("txtEducationName");
+			locale = request.getParameter("txtLocale");
+			currentEducation.setEducationName(name);
+			currentEducation.setLocale(locale);
+			facade.updateEducation(currentEducation);
+
+			request.setAttribute("education", currentEducation);
+			url = "/ShowEducation.jsp";
+			break;
+			
 		default: // default landing page
 			url = "/SearchEducation.jsp";
 		}

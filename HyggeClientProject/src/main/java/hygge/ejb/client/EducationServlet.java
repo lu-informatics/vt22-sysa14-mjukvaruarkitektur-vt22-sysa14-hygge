@@ -19,25 +19,27 @@ import hygge.facade.ics.FacadeLocal;
 @WebServlet("/EducationServlet")
 public class EducationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    @EJB
-    FacadeLocal facade;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EducationServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	@EJB
+	FacadeLocal facade;
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = null;
+	public EducationServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String url = null;
 		// Get hidden field
 		String operation = request.getParameter("operation");
-
+		
 		switch (operation) {
 
 		case "showeducation":
@@ -45,7 +47,7 @@ public class EducationServlet extends HttpServlet {
 			String name = request.getParameter("txtEducationName");
 			Education e = facade.findByEducationName(name);
 			request.setAttribute("education", e);
-			url="/ShowEducation.jsp";
+			url = "/ShowEducation.jsp";
 			break;
 
 		case "searcheducation":
@@ -61,5 +63,4 @@ public class EducationServlet extends HttpServlet {
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
-
 }

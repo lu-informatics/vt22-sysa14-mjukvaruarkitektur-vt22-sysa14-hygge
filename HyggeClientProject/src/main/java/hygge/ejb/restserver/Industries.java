@@ -14,7 +14,7 @@ import hygge.ejb.ics.Industry;
 import hygge.facade.ics.FacadeLocal;
 
 /**
- * Servlet implementation class HyggeAdminControl
+ * Servlet implementation class Industries
  */
 @WebServlet("/Industries/*")
 public class Industries extends HttpServlet {
@@ -59,7 +59,6 @@ public class Industries extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 	/**
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
 	 */

@@ -14,7 +14,7 @@ import hygge.ejb.ics.Education;
 import hygge.facade.ics.FacadeLocal;
 
 /**
- * Servlet implementation class HyggeAdminControl
+ * Servlet implementation class Educations
  */
 @WebServlet("/Educations/*")
 public class Educations extends HttpServlet {

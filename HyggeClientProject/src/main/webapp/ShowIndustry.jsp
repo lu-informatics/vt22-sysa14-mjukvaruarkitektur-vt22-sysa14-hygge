@@ -15,16 +15,20 @@
 	%>
 	<h2>Industry:</h2>
 	<form action="/HyggeClientProject/IndustryServlet" method="post">
-	<p>
-		<input type="text" name="txtIndustryName"
-			value="<%=i.getIndustryName()%>">
-	</p>
-	<p>
-		<input type="text" name="txtField" value="<%=i.getField()%>">
-	</p>
-	<p><%=new java.util.Date()%></p>
+		<p>
+			<input type="text" name="txtIndustryName"
+				value="<%=i.getIndustryName()%>">
+		</p>
+		<p>
+			<input type="text" name="txtField" value="<%=i.getField()%>">
+		</p>
 		<input type="submit" name="submit" value="Update"> <input
 			name="operation" value="updateindustry" type="hidden">
+	</form>
+	
+	<form action="/HyggeClientProject/IndustryServlet" method="post">
+		<input type="submit" name="submit" value="Delete"><input 
+		name="operation" value="deleteindustry" type="hidden">
 	</form>
 
 	<form action="/HyggeClientProject/IndustryServlet" method="post">

@@ -22,6 +22,7 @@ public class IndustryServlet extends HttpServlet {
 	@EJB
 	FacadeLocal facade;
 	Industry currentIndustry;
+
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -36,6 +37,7 @@ public class IndustryServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		Industry i;
 		String name;
 		String field;
 		String url = null;
@@ -44,12 +46,23 @@ public class IndustryServlet extends HttpServlet {
 		String operation = request.getParameter("operation");
 
 		switch (operation) {
-
+		
+		case "createindustry":
+			System.out.println("IndustryServlet-createindustry");
+			name = request.getParameter("txtIndustryName");
+			field = request.getParameter("txtField");
+			i = new Industry();
+			i.setIndustryName(name);
+			i.setField(field);
+			facade.createIndustry(i);
+			request.setAttribute("industry", i);
+			url="/ShowIndustry.jsp";
+		
 		case "showindustry":
 			System.out.println("IndustryServlet-showindustry");
 			name = request.getParameter("txtIndustryName");
-			Industry i = facade.findByIndustryName(name);
-			currentIndustry=i;
+			i = facade.findByIndustryName(name);
+			currentIndustry = i;
 			request.setAttribute("industry", i);
 			url = "/ShowIndustry.jsp";
 			break;
@@ -58,11 +71,9 @@ public class IndustryServlet extends HttpServlet {
 			System.out.println("IndustryServlet-searchindustry");
 			url = "/SearchIndustry.jsp";
 			break;
-			
+
 		case "updateindustry":
 			System.out.println("IndustryServlet-updateindustry");
-			
-			// TODO: Find out why these two lines break everything
 			name = request.getParameter("txtIndustryName");
 			field = request.getParameter("txtField");
 			currentIndustry.setIndustryName(name);
@@ -71,6 +82,15 @@ public class IndustryServlet extends HttpServlet {
 
 			request.setAttribute("industry", currentIndustry);
 			url = "/ShowIndustry.jsp";
+			break;
+			
+		case "deleteindustry":
+			System.out.println("IndustryServlet-deleteindustry");
+			if (currentIndustry!=null) {
+				facade.deleteIndustry(currentIndustry.getIndustryName());
+				url="/SearchIndustry.jsp";
+			}
+			else url ="/ShowIndustry.jsp";
 			break;
 
 		default: // default landing page
@@ -81,5 +101,4 @@ public class IndustryServlet extends HttpServlet {
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
-
 }

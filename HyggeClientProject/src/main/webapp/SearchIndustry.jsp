@@ -10,7 +10,7 @@
 </head>
 <body>
 	<form action="/HyggeClientProject/IndustryServlet" method="post">
-		<table cellspacing="0" cellpadding="0" border="0" align="left">
+		<table>
 			<tr>
 				<td><h2>Search Industry:</h2></td>
 			</tr>

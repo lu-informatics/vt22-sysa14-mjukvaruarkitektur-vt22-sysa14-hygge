@@ -43,13 +43,26 @@ public class EducationServlet extends HttpServlet {
 		String url = null;
 		// Get hidden field
 		String operation = request.getParameter("operation");
-		
+
 		switch (operation) {
 
+		case "createeducation":
+			System.out.println("EducationServlet-createeducation");
+			name = request.getParameter("txtEducationName");
+			locale = request.getParameter("txtLocale");
+			e = new Education();
+			e.setEducationName(name);
+			e.setLocale(locale);
+			facade.createEducation(e);
+			request.setAttribute("education", e);
+			url="/ShowEducation.jsp";
+			break;
+		
 		case "showeducation":
 			System.out.println("EducationServlet-showeducation");
 			name = request.getParameter("txtEducationName");
 			e = facade.findByEducationName(name);
+			currentEducation = e;
 			request.setAttribute("education", e);
 			url = "/ShowEducation.jsp";
 			break;
@@ -70,7 +83,16 @@ public class EducationServlet extends HttpServlet {
 			request.setAttribute("education", currentEducation);
 			url = "/ShowEducation.jsp";
 			break;
-			
+		
+		case "deleteeducaion":
+			System.out.println("EducationServlet-deleteeducation");
+			if (currentEducation!=null){
+				facade.deleteEducation(currentEducation.getEducationName());
+				url = "/SearchEducation.jsp";
+			}
+			else url = "/ShowEducation.jsp";
+			break;
+
 		default: // default landing page
 			url = "/SearchEducation.jsp";
 		}

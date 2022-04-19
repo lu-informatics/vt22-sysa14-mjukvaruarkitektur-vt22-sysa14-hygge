@@ -11,6 +11,10 @@ import javax.persistence.Table;
 @Table(name = "Education")
 public class Education implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String educationName;
 	private String locale;
 	

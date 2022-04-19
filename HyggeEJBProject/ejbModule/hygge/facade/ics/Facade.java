@@ -1,7 +1,6 @@
 package hygge.facade.ics;
 
 import javax.ejb.EJB;
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
 import hygge.eao.ics.EducationEAOLocal;
@@ -14,28 +13,23 @@ import hygge.ejb.ics.Industry;
  */
 @Stateless
 public class Facade implements FacadeLocal {
-
+	
 	@EJB
 	private EducationEAOLocal educationEAO;
+	
+	@EJB
 	private IndustryEAOLocal industryEAO;
 
-
-
-	/**
-	 * Default constructor. 
-	 */
 	public Facade() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Education findByEducationName(String educationName) {
+	public Education findByEducationName(String educationName){
 		return educationEAO.findByEducationName(educationName);
-
 	}
 
 	public Industry findByIndustryName(String industryName) {
 		return industryEAO.findByIndustryName(industryName);
-
 	}
 
 	public Education createEducation(Education education) {
@@ -45,7 +39,6 @@ public class Facade implements FacadeLocal {
 	public Industry createIndustry(Industry industry) {
 		return industryEAO.createIndustry(industry);
 	}
-
 
 	public Education updateEducation(Education education) {
 		return educationEAO.updateEducation(education);
@@ -63,4 +56,3 @@ public class Facade implements FacadeLocal {
 		industryEAO.deleteIndustry(industryName);
 	}
 }
-

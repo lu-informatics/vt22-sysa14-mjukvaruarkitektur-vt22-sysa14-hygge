@@ -14,29 +14,26 @@ import hygge.ejb.ics.Education;
 import hygge.facade.ics.FacadeLocal;
 
 /**
- * Servlet implementation class Educations
+ * Servlet implementation class HyggeRestClient
  */
-@WebServlet("/Educations/*")
-public class Educations extends HttpServlet {
+@WebServlet("/HyggeRestClient")
+public class HyggeRestClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	@EJB
 	FacadeLocal facade;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public HyggeRestClient() {
+        super();
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public Educations() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pathInfo = request.getPathInfo();
 		if (pathInfo == null || pathInfo.equals("/")) {
 			System.out.println("All");
@@ -44,7 +41,7 @@ public class Educations extends HttpServlet {
 			return;
 		}
 		String[] splits = pathInfo.split("/");
-		if (splits.length != 2) {
+		if (splits.length != 3) {
 			System.out.println("All2");
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return;
@@ -56,31 +53,13 @@ public class Educations extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doPut(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doDelete(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
+	
 	private void sendEducationAsJson(HttpServletResponse response, Education education) throws IOException {
 		PrintWriter out = response.getWriter();
 		response.setContentType("application/json");
@@ -93,4 +72,5 @@ public class Educations extends HttpServlet {
 			out.print("{}");
 		out.flush();
 	}
+
 }

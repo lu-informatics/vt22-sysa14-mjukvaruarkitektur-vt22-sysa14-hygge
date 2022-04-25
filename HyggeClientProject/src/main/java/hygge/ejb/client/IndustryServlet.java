@@ -19,8 +19,10 @@ import hygge.facade.ics.FacadeLocal;
 @WebServlet("/IndustryServlet")
 public class IndustryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	@EJB
 	FacadeLocal facade;
+	// this variable is used to store request param "industry" for update
 	Industry currentIndustry;
 
 	/**
@@ -28,7 +30,6 @@ public class IndustryServlet extends HttpServlet {
 	 */
 	public IndustryServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -41,12 +42,11 @@ public class IndustryServlet extends HttpServlet {
 		String name;
 		String field;
 		String url = null;
-
-		// Get hidden field
+		// Get hidden field "operation" from jsp
 		String operation = request.getParameter("operation");
 
 		switch (operation) {
-		
+
 		case "createindustry":
 			System.out.println("IndustryServlet-createindustry");
 			name = request.getParameter("txtIndustryName");
@@ -56,8 +56,8 @@ public class IndustryServlet extends HttpServlet {
 			i.setField(field);
 			facade.createIndustry(i);
 			request.setAttribute("industry", i);
-			url="/ShowIndustry.jsp";
-		
+			url = "/ShowIndustry.jsp";
+
 		case "showindustry":
 			System.out.println("IndustryServlet-showindustry");
 			name = request.getParameter("txtIndustryName");
@@ -83,17 +83,18 @@ public class IndustryServlet extends HttpServlet {
 			request.setAttribute("industry", currentIndustry);
 			url = "/ShowIndustry.jsp";
 			break;
-			
+
 		case "deleteindustry":
 			System.out.println("IndustryServlet-deleteindustry");
-			if (currentIndustry!=null) {
+			if (currentIndustry != null) {
 				facade.deleteIndustry(currentIndustry.getIndustryName());
-				url="/SearchIndustry.jsp";
-			}
-			else url ="/ShowIndustry.jsp";
+				url = "/SearchIndustry.jsp";
+			} else
+				url = "/ShowIndustry.jsp";
 			break;
 
-		default: // default landing page
+		// default landing page
+		default:
 			url = "/SearchIndustry.jsp";
 		}
 

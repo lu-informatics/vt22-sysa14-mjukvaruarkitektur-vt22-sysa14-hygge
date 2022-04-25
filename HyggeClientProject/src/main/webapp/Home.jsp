@@ -4,10 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Hygge - Home</title>
 </head>
 <body>
-
+<p>
+this will be the home page.
+</p>
 </body>
 </html>
 <!--TODO: add nav to create and search, possibly to listview?-->

@@ -19,8 +19,10 @@ import hygge.facade.ics.FacadeLocal;
 @WebServlet("/EducationServlet")
 public class EducationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	@EJB
 	FacadeLocal facade;
+	// this variable is used to store request param "education" for update
 	Education currentEducation;
 
 	/**
@@ -28,7 +30,6 @@ public class EducationServlet extends HttpServlet {
 	 */
 	public EducationServlet() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -41,7 +42,7 @@ public class EducationServlet extends HttpServlet {
 		String name;
 		String locale;
 		String url = null;
-		// Get hidden field
+		// Get hidden field "operation" from jsp
 		String operation = request.getParameter("operation");
 
 		switch (operation) {
@@ -55,9 +56,9 @@ public class EducationServlet extends HttpServlet {
 			e.setLocale(locale);
 			facade.createEducation(e);
 			request.setAttribute("education", e);
-			url="/ShowEducation.jsp";
+			url = "/ShowEducation.jsp";
 			break;
-		
+
 		case "showeducation":
 			System.out.println("EducationServlet-showeducation");
 			name = request.getParameter("txtEducationName");
@@ -83,17 +84,18 @@ public class EducationServlet extends HttpServlet {
 			request.setAttribute("education", currentEducation);
 			url = "/ShowEducation.jsp";
 			break;
-		
+
 		case "deleteeducaion":
 			System.out.println("EducationServlet-deleteeducation");
-			if (currentEducation!=null){
+			if (currentEducation != null) {
 				facade.deleteEducation(currentEducation.getEducationName());
 				url = "/SearchEducation.jsp";
-			}
-			else url = "/ShowEducation.jsp";
+			} else
+				url = "/ShowEducation.jsp";
 			break;
 
-		default: // default landing page
+		// default landing page
+		default:
 			url = "/SearchEducation.jsp";
 		}
 

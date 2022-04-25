@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type"
 	content="text/html; charset=ISO-
 8859-1">
-<title>Show Education</title>
+<title>Hygge - Show Education</title>
 </head>
 <body>
 	<%
@@ -25,12 +25,10 @@
 		<input type="submit" name="submit" value="Update"> <input
 			name="operation" value="updateeducation" type="hidden">
 	</form>
-
 	<form action="/HyggeClientProject/EducationServlet" method="post">
-		<input type="submit" name="submit" value="Delete"><input 
-		name="operation" value="deleteeducation" type="hidden">
+		<input type="submit" name="submit" value="Delete"><input
+			name="operation" value="deleteeducation" type="hidden">
 	</form>
-
 	<form action="/HyggeClientProject/EducationServlet" method="post">
 		<input type="submit" name="submit" value="Back"> <input
 			name="operation" value="searcheducation" type="hidden">

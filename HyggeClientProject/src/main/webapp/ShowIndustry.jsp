@@ -25,12 +25,10 @@
 		<input type="submit" name="submit" value="Update"> <input
 			name="operation" value="updateindustry" type="hidden">
 	</form>
-	
 	<form action="/HyggeClientProject/IndustryServlet" method="post">
-		<input type="submit" name="submit" value="Delete"><input 
-		name="operation" value="deleteindustry" type="hidden">
+		<input type="submit" name="submit" value="Delete"><input
+			name="operation" value="deleteindustry" type="hidden">
 	</form>
-
 	<form action="/HyggeClientProject/IndustryServlet" method="post">
 		<input type="submit" name="submit" value="Back"> <input
 			name="operation" value="searchindustry" type="hidden">

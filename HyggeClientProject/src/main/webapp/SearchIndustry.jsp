@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type"
 	content="text/html; charset=ISO-
 8859-1">
-<title>Search Industry</title>
+<title>Hygge - Search Industry</title>
 </head>
 <body>
 	<form action="/HyggeClientProject/IndustryServlet" method="post">
@@ -22,6 +22,10 @@
 			</tr>
 		</table>
 		<input name="operation" value="showindustry" type="hidden">
+	</form>
+	<form action="/HyggeClientProject/MainServlet" method="post">
+		<input type="submit" name="submit" value="Back"> <input
+			name="operation" value="home" type="hidden">
 	</form>
 </body>
 </html>

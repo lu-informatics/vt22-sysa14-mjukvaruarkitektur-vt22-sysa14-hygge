@@ -23,5 +23,9 @@
 		</table>
 		<input name="operation" value="showeducation" type="hidden">
 	</form>
+	<form action="/HyggeClientProject/MainServlet" method="post">
+		<input type="submit" name="submit" value="Back"> <input
+			name="operation" value="home" type="hidden">
+	</form>
 </body>
 </html>

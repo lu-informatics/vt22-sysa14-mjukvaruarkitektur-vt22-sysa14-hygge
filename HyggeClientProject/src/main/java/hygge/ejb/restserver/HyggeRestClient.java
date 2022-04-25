@@ -2,6 +2,7 @@ package hygge.ejb.restserver;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serializable;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import hygge.ejb.ics.Education;
+import hygge.ejb.ics.Industry;
 import hygge.facade.ics.FacadeLocal;
 
 /**
@@ -19,21 +21,23 @@ import hygge.facade.ics.FacadeLocal;
 @WebServlet("/HyggeRestClient")
 public class HyggeRestClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	@EJB
 	FacadeLocal facade;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public HyggeRestClient() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public HyggeRestClient() {
+		super();
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String pathInfo = request.getPathInfo();
 		if (pathInfo == null || pathInfo.equals("/")) {
 			System.out.println("All");
@@ -47,30 +51,47 @@ public class HyggeRestClient extends HttpServlet {
 			return;
 		}
 
-		String id = splits[1];
-		Education education = facade.findByEducationName(id);
-		sendEducationAsJson(response, education);
+		String entityType = splits[1];
+		String id = splits[2];
+
+		if (entityType.equals("Industry")) {
+			Industry industry = facade.findByIndustryName(id);
+			sendAsJson(response,industry);
+			
+		} else {
+			Education education = facade.findByEducationName(id);
+			sendAsJson(response,education);
+		}
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-	
-	private void sendEducationAsJson(HttpServletResponse response, Education education) throws IOException {
+
+	private void sendAsJson(HttpServletResponse response, Serializable entity) throws IOException {
 		PrintWriter out = response.getWriter();
 		response.setContentType("application/json");
-		if (education != null) {
+
+		if (entity != null) {
 			out.print("{\"name\":");
-			out.print("\"" + education.getEducationName() + "\"");
-			out.print(",\"locale\":");
-			out.print("\"" + education.getLocale() + "\"}");
-		} else
-			out.print("{}");
+			if (entity instanceof Industry) {
+				out.print("\"" + ((Industry) entity).getIndustryName() + "\"");
+				out.print(",\"locale\":");
+				out.print("\"" + ((Industry) entity).getField() + "\"}");
+			} else {
+				out.print("{\"name\":");
+				out.print("\"" + ((Education) entity).getEducationName() + "\"");
+				out.print(",\"locale\":");
+				out.print("\"" + ((Education) entity).getLocale() + "\"}");
+			}
+
+		}else out.print("{}");
 		out.flush();
 	}
-
 }

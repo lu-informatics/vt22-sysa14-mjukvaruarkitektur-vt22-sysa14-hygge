@@ -12,6 +12,10 @@ import javax.persistence.Table;
 @Table(name = "Industry")
 public class Industry implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String industryName;
 	private String field;
 	

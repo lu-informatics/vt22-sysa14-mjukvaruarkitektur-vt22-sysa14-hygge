@@ -7,7 +7,7 @@ import hygge.ejb.ics.Industry;
 
 @Local
 public interface FacadeLocal {
-
+	
 	public Education findByEducationName(String educationName);
 	public Industry findByIndustryName(String industryName); 
 	

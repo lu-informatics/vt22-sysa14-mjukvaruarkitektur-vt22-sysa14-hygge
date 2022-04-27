@@ -1,4 +1,7 @@
 package hygge.eao.ics;
+import java.util.ArrayList;
+
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -22,6 +25,11 @@ public class EducationEAOImpl implements EducationEAOLocal {
 		// TODO Auto-generated constructor stub
 	}
 
+	@SuppressWarnings("unchecked")
+	public ArrayList<Education> getAllEducations(){
+		return (ArrayList<Education>)em.createQuery("select e from Education e").getResultList();
+	}
+	
 	public Education findByEducationName(String educationName) { 
 		return em.find(Education.class, educationName); 
 	} 
@@ -41,5 +49,5 @@ public class EducationEAOImpl implements EducationEAOLocal {
 		if (e != null) { 
 			em.remove(e); 
 		} 
-	} 
+	}
 }

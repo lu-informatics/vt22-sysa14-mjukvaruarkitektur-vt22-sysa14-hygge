@@ -1,6 +1,7 @@
 package hygge.ejb.client;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -74,18 +75,32 @@ public class MergedServlet extends HttpServlet {
 			throws ServletException, IOException {
 		System.out.println("MergedServlet-show");
 		String id = request.getParameter("txtID");
-
-		if (entityType.equals("Industry")) {
-			Industry i = facade.findByIndustryName(id);
-			currentIndustry = i;
-			request.setAttribute("industry", i);
-		} else {
-			Education e = facade.findByEducationName(id);
-			currentEducation = e;
-			request.setAttribute("education", e);
+		boolean requestedSingleEntity=(id!=null && id!="");
+		
+		if(requestedSingleEntity) {
+			if (entityType.equals("Industry")) {
+				Industry i = facade.findByIndustryName(id);
+				currentIndustry = i;
+				request.setAttribute("industry", i);
+			} else {
+				Education e = facade.findByEducationName(id);
+				currentEducation = e;
+				request.setAttribute("education", e);
+			}
+		} 
+		
+		else 
+		/*get all entities if no ID has been supplied*/ {
+			if(entityType.equals("Industry")) {
+				List<Industry> allIndustries = facade.getAllIndustries();
+				request.setAttribute("Industries", allIndustries);
+			} else {
+				List<Education> allEducations = facade.getAllEducations();
+				request.setAttribute("Educations", allEducations);
+			}	
 		}
-		url = String.format("/Show%s.jsp", entityType);
-		dispatch(url, request, response);
+		url = String.format(requestedSingleEntity?"/Show%s.jsp":"/%sTable.jsp", entityType);
+		dispatch(url,request,response);
 	}
 
 	/**

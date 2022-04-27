@@ -25,7 +25,6 @@ import hygge.facade.ics.FacadeLocal;
 @WebServlet("/HyggeRestClient")
 public class HyggeRestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	@EJB
 	FacadeLocal facade;
 
@@ -180,12 +179,11 @@ public class HyggeRestServlet extends HttpServlet {
 				out.print(",\"locale\":");
 				out.print("\"" + ((Education) entity).getLocale() + "\"}");
 			}
-
 		} else
 			out.print("{}");
 		out.flush();
 	}
-	
+
 	private Serializable parseJsonEntity(BufferedReader br, String entityType) {
 		// javax.json-1.0.4.jar
 		JsonReader jsonReader = null;

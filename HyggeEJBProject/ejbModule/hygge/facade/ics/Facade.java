@@ -1,5 +1,7 @@
 package hygge.facade.ics;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -11,20 +13,28 @@ import hygge.ejb.ics.Industry;
 /**
  * Session Bean implementation class Facade
  */
+
 @Stateless
 public class Facade implements FacadeLocal {
-	
+
 	@EJB
 	private EducationEAOLocal educationEAO;
-	
+
 	@EJB
 	private IndustryEAOLocal industryEAO;
 
 	public Facade() {
-		// TODO Auto-generated constructor stub
 	}
 
-	public Education findByEducationName(String educationName){
+	public List<Industry> getAllIndustries() {
+		return industryEAO.getAllIndustries();
+	}
+
+	public List<Education> getAllEducations() {
+		return educationEAO.getAllEducations();
+	}
+
+	public Education findByEducationName(String educationName) {
 		return educationEAO.findByEducationName(educationName);
 	}
 

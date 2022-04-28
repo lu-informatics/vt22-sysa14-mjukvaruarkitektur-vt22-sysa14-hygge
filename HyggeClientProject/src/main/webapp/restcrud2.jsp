@@ -36,7 +36,7 @@
       </section> 
    </section>
    <form action="">
-<div align="center"><textarea readonly name="" cols="50" rows="4">welcome to my program</textarea></div>
+<div align="center"><textarea readonly name="" cols="50" rows="4"></textarea></div>
 </form> 
    <footer> 
       <p>&copy; Hygge Inc. </p> 

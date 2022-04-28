@@ -12,7 +12,7 @@
 <body>
 
 	<%
-	ArrayList<Education> educations = (ArrayList<Education>) request.getAttribute("educations");
+	ArrayList<Education> educations = (ArrayList<Education>) request.getAttribute("Educations");
 	%>
 
 	<div id="mydata">
@@ -48,24 +48,14 @@
 				writer.println("<td><input type=\"text\" name=\"txtLocale\" value=\"" + e.getLocale() + "\" readonly></td>");
 
 				writer.println("</tr>");
+				writer.println("<input name=\"navigate\" value=\"fetch\" type=\"hidden\">");
+				writer.println("<input name=\"entityType\" value=\"Education\" type=\"hidden\">");
+				writer.println("<input name=\"origin\" value=\"table\" type=\"hidden\">");
 				writer.println("</form>");
 			}
 			%>
 
 		</table>
 	</div>
-
-
-	<div id="myDynamicTable">
-		<input type="button" id="create" value="Click here"
-			onclick="Javascript:addTable()"> to create a Table and add
-		some data using JavaScript
-	</div>
 </body>
 </html>
-
-
-<form action="/HyggeClientProject/EducationServlet" method="post">
-	<input type="submit" name="submit" value="Back"> <input
-		name="operation" value="searcheducation" type="hidden">
-</form>

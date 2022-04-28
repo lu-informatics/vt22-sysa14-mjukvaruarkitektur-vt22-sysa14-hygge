@@ -12,6 +12,8 @@
 <body>
 	<%
 	Education e = (Education) request.getAttribute("education");
+	String origin = (String) request.getAttribute("origin");
+	System.out.println(origin);
 	%>
 	<h2>Education:</h2>
 	<form action="/HyggeClientProject/EducationServlet" method="post">
@@ -25,13 +27,14 @@
 		<input type="submit" name="submit" value="Update"> <input
 			name="operation" value="updateeducation" type="hidden">
 	</form>
-	<form action="/HyggeClientProject/EducationServlet" method="post">
+	<form action="/HyggeClientProject/MergedServlet" method="delete">
 		<input type="submit" name="submit" value="Delete"><input
 			name="operation" value="deleteeducation" type="hidden">
 	</form>
-	<form action="/HyggeClientProject/EducationServlet" method="post">
+	<form action="/HyggeClientProject/MergedServlet" method="service">
 		<input type="submit" name="submit" value="Back"> <input
-			name="operation" value="searcheducation" type="hidden">
+			name="navigate" value=<%=(origin!=null?"fetch":"search")%> type="hidden">
+		<input name="entityType" value="Education" type="hidden">
 	</form>
 </body>
 </html>

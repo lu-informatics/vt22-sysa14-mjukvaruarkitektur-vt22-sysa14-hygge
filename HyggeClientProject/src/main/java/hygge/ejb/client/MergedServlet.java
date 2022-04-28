@@ -43,28 +43,34 @@ public class MergedServlet extends HttpServlet {
 			throws ServletException, IOException {
 		entityType = request.getParameter("entityType");
 
-		switch (request.getParameter("navigate")) {
+		if (request.getParameter("navigate") != null) {
+			switch (request.getParameter("navigate")) {
 
-		case "search":
-			System.out.println("MergedServlet-search");
-			url = String.format("/Search%s.jsp", entityType);
-			break;
+			case "search":
+				System.out.println("MergedServlet-search");
+				url = String.format("/Search%s.jsp", entityType);
+				break;
 
-		case "home":
-			System.out.println("MainServlet-home");
-			url = "/Home.jsp";
-			break;
+			case "fetch":
+				System.out.println("MergedServlet-fetch");
+				doGet(request, response);
+				return;
 
-		case "about":
-			System.out.println("MainServlet-about");
-			url = "/About.jsp";
-			break;
+			case "home":
+				System.out.println("MainServlet-home");
+				url = "/Home.jsp";
+				break;
 
-		default:
-			url = "/Home.jsp";
+			case "about":
+				System.out.println("MainServlet-about");
+				url = "/About.jsp";
+				break;
+
+			default:
+				url = "/Home.jsp";
+			}
+			dispatch(url, request, response);
 		}
-		
-		dispatch(url,request,response);
 	}
 
 	/**
@@ -75,9 +81,9 @@ public class MergedServlet extends HttpServlet {
 			throws ServletException, IOException {
 		System.out.println("MergedServlet-show");
 		String id = request.getParameter("txtID");
-		boolean requestedSingleEntity=(id!=null && id!="");
-		
-		if(requestedSingleEntity) {
+		entityType = request.getParameter("entityType");
+		boolean requestedSingleEntity = (id != null && id.strip() != "");
+		if (requestedSingleEntity) {
 			if (entityType.equals("Industry")) {
 				Industry i = facade.findByIndustryName(id);
 				currentIndustry = i;
@@ -87,20 +93,18 @@ public class MergedServlet extends HttpServlet {
 				currentEducation = e;
 				request.setAttribute("education", e);
 			}
-		} 
-		
-		else 
-		/*get all entities if no ID has been supplied*/ {
-			if(entityType.equals("Industry")) {
-				List<Industry> allIndustries = facade.getAllIndustries();
-				request.setAttribute("Industries", allIndustries);
-			} else {
-				List<Education> allEducations = facade.getAllEducations();
-				request.setAttribute("Educations", allEducations);
-			}	
 		}
-		url = String.format(requestedSingleEntity?"/Show%s.jsp":"/%sTable.jsp", entityType);
-		dispatch(url,request,response);
+		
+		if (entityType.equals("Industry")) {
+			List<Industry> allIndustries = facade.getAllIndustries();
+			request.setAttribute("Industries", allIndustries);
+		} else {
+			List<Education> allEducations = facade.getAllEducations();
+			request.setAttribute("Educations", allEducations);
+		}
+
+		url = String.format(requestedSingleEntity ? "/Show%s.jsp" : "/%sTable.jsp", entityType);
+		dispatch(url, request, response);
 	}
 
 	/**
@@ -176,7 +180,6 @@ public class MergedServlet extends HttpServlet {
 
 		dispatch(url, request, response);
 	}
-
 
 	private void dispatch(String url, HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

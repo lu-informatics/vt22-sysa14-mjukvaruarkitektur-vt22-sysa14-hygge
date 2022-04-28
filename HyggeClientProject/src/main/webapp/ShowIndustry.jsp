@@ -9,23 +9,27 @@
 </head>
 <body>
 	<%
-	Industry i = (Industry) request.getAttribute("industry");
+	Industry i = (Industry) request.getAttribute("entity");
 	String origin = (String) request.getParameter("origin");
 	System.out.println(origin);
 	%>
 	<h2>Industry:</h2>
-	<form action="/HyggeClientProject/MergedServlet" method="post">
-		<p>
-			<input type="text" name="txtIndustryName"
+	<form action="/HyggeClientProject/MergedServlet" method="put">
+		<p> <b>Name</b>:
+			<input type="text" name="txtID"
 				value="<%=i.getIndustryName()%>">
 		</p>
-		<p>
+		<p> <b>Field:</b>
 			<input type="text" name="txtField" value="<%=i.getField()%>">
 		</p>
 		<input type="submit" name="submit" value="Update">
+		<input name="navigate" value="update" type="hidden"><input name="entityType" value="Industry"
+			type="hidden">
 	</form>
 	<form action="/HyggeClientProject/MergedServlet" method="delete">
 		<input type="submit" name="submit" value="Delete">
+		<input name=navigate value="delete" type="hidden"><input name="entityType" value="Industry"
+			type="hidden">
 	</form>
 	<form action="/HyggeClientProject/MergedServlet" method="service">
 		<input type="submit" name="submit" value="Back"> <input

@@ -16,15 +16,16 @@
 
 	<div id="dynamictable">
 		<table>
-			<tr>
-				<td>&nbsp;</td>
-				<td><b>Name</b></td>
-				<td><b>Field</b></td>
-			</tr>
 			<%
 			PrintWriter writer = response.getWriter();
+			writer.println("<h1>Industries</h1>");
+			writer.println("<table><tr>");
+			writer.println("<td>&emsp;&emsp;&emsp;<b>Name</b></td>");
+			writer.println("<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Field</b></td>");
+			writer.println("</tr></table>");
 			for (Industry i : industries) {
 				writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
+				writer.println("<table>");
 				writer.println("<tr>");
 				writer.println("<td><input type=\"submit\" name=\"submit\" value=\"Manage\"></td>");
 
@@ -39,8 +40,26 @@
 				writer.println("</form>");
 			}
 			%>
-
 		</table>
+		<br>
+		<br>
+		<h3>Create New Industry</h3>
+		<form action="/HyggeClientProject/MergedServlet" method="post">
+			<table>
+				<tr>
+					<td>Name:<input type="text" name="txtID"></td>
+				</tr>
+				<tr>
+					<td>Field:<input type="text" name="txtField"></td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="submit" value="Create"><input
+						name="navigate" value="create" type="hidden"> <input
+						name="entityType" value="Industry" type="hidden"></td>
+				</tr>
+
+			</table>
+		</form>
 	</div>
 </body>
 </html>

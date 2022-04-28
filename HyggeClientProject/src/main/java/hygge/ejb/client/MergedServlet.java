@@ -50,10 +50,24 @@ public class MergedServlet extends HttpServlet {
 				System.out.println("MergedServlet-search");
 				url = String.format("/Search%s.jsp", entityType);
 				break;
+				
+			case "create":
+				System.out.println("MergedServlet-create");
+				doPost(request, response);
+				return;
 
 			case "fetch":
 				System.out.println("MergedServlet-fetch");
 				doGet(request, response);
+				return;
+			case "update":
+				System.out.println("MergedServlet-update");
+				doPut(request, response);
+				return;
+			
+			case "delete":
+				System.out.println("MergedServlet-delete");
+				doDelete(request,response);
 				return;
 
 			case "home":
@@ -87,11 +101,11 @@ public class MergedServlet extends HttpServlet {
 			if (entityType.equals("Industry")) {
 				Industry i = facade.findByIndustryName(id);
 				currentIndustry = i;
-				request.setAttribute("industry", i);
+				request.setAttribute("entity", i);
 			} else {
 				Education e = facade.findByEducationName(id);
 				currentEducation = e;
-				request.setAttribute("education", e);
+				request.setAttribute("entity", e);
 			}
 		}
 
@@ -129,6 +143,7 @@ public class MergedServlet extends HttpServlet {
 			facade.createEducation(e);
 			request.setAttribute("entity", e);
 		}
+		request.setAttribute("origin", "table");
 		url = String.format("/Show%s.jsp", entityType);
 		dispatch(url, request, response);
 	}

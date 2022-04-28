@@ -12,7 +12,7 @@
 	<form action="/HyggeClientProject/MergedServlet" method="get">
 		<table>
 			<tr>
-				<td><h2>Search Education:</h2></td>
+				<td><h2>Search Industry:</h2></td>
 			</tr>
 			<tr>
 				<td><input type="text" name="txtID" size="25" maxlength="25">

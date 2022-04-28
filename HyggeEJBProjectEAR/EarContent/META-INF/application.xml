@@ -10,10 +10,4 @@
       <context-root>HyggeClientProject</context-root>
     </web>
   </module>
-  <module>
-    <web>
-      <web-uri>RestServerHyggeProject.war</web-uri>
-      <context-root>RestServerHyggeProject</context-root>
-    </web>
-  </module>
 </application>

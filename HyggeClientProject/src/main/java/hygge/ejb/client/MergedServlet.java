@@ -94,7 +94,7 @@ public class MergedServlet extends HttpServlet {
 				request.setAttribute("education", e);
 			}
 		}
-		
+
 		if (entityType.equals("Industry")) {
 			List<Industry> allIndustries = facade.getAllIndustries();
 			request.setAttribute("Industries", allIndustries);

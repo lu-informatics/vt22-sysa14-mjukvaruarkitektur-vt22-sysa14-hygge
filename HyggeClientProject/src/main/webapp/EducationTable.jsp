@@ -7,26 +7,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Hygge - Education Index</title>
 </head>
 <body>
-
 	<%
 	ArrayList<Education> educations = (ArrayList<Education>) request.getAttribute("Educations");
 	%>
-
-	<div id="mydata">
-		<b>Current data in the system ...</b>
-		<table id="myTableData" border="1">
-			<tr>
-				<td>&nbsp;</td>
-				<td><b>Name</b></td>
-				<td><b>Locale</b></td>
-			</tr>
-		</table>
-		&nbsp;
-
-	</div>
 
 	<div id="dynamictable">
 		<table>

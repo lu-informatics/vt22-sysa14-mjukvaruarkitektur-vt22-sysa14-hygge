@@ -15,47 +15,36 @@ function ajaxReturn_Error(result,status,xhr){
 	
 }
 ("#FindBtn").click( function() {  
-   var strValue = $("#id").val(); 
-   if (strValue != "") { 
+	 var entityType =  $("#EntityType").name();
+	 if (entityType == "Education" && strValue != "") { 
+		
+		
        $.ajax({ 
      method: "GET", 
 url: "http://localhost:8080/HyggeClientProject/HyggeRestServlet/"+strValue,  
        error: ajaxFindReturnError,  
        success: ajaxFindReturnSuccess 
  }) 
-  $("#DeleteBtn").click( function() {     var strValue = $("#id").val(); 
-   if (strValue != "") { 
-      $.ajax({ 
-    method: "DELETE", 
-  url: +strValue,  
-         error: ajaxDelReturnError,  
-         success: ajaxDelReturnSuccess   
-      }) 
-      function ajaxDelReturnSuccess(result, status, xhr) { 
-    clearFields(); 
-    $("#educationName").attr("placeholder","Education deleted" ); 
-    $("#industryName").attr("placeholder","Industry deleted" ); 
-      
-      } 
-      function ajaxDelReturnError(result, status, xhr) { 
-         alert("Error"); 
-         console.log("Ajax-find movie: "+status); 
-      } 
+function ajaxFindReturnSuccess(result, status, xhr) { 
+  ParseJsonFileEducation(result);  
  } 
+ function ajaxFindReturnError(result, status, xhr) { 
+  alert("Error"); 
+  console.log("Ajax-find education: "+status); 
+ } 
+   }
+   
 })//btnclick 
- $("#AddBtn").click( function() {  
-   var strId = $("#id").val(); 
-   var strTitle = $("#title").val(); 
-   var strPrice = $("#price").val(); 
-   
-   var obj = { id: strId, title: strTitle, price: strPrice}; 
+$("#AddBtn").click( function() {  
+   var strEducationName = $("#educationName").name();
+   var strIndustryName = $ ("#industryName").name(); 
+   var obj = { educationName: strEducationName, industryName: strIndustryName}; 
    var jsonString = JSON.stringify(obj); 
-   
-   if (strId != "") { 
-    
+  
+   if (strEducationNumber != "") {   
  $.ajax({ 
   method: "POST", 
-  url: "http://localhost:8080/RestServerMovieProject/Movies/",  
+  url: "http://localhost:8080/HyggeClientProject/HyggeRestServlet/",  
         data: jsonString, 
         dataType:'json', 
         error: ajaxAddReturnError,  
@@ -63,16 +52,17 @@ url: "http://localhost:8080/HyggeClientProject/HyggeRestServlet/"+strValue,
  }) 
  function ajaxAddReturnSuccess(result, status, xhr) { 
   clearFields(); 
-  $("#title").attr("placeholder","Movie added" ); 
+  $("#educationName").attr("placeholder","Education added"); 
      
  } 
  function ajaxAddReturnError(result, status, xhr) { 
   alert("Error Add"); 
-  console.log("Ajax-find movie: "+status); 
+  console.log("Ajax-find education: "+status); 
  } 
  
    } 
 })//btnclick 
+
 $("#UpdateBtn").click( function() {  
   var strId = $("#id").val(); 
   var strTitle = $("#title").val(); 
@@ -100,28 +90,28 @@ $("#UpdateBtn").click( function() {
   console.log("Ajax-find movie: "+status); 
      } 
  
-  } })//btnclick 
-
-  function ajaxFindReturnSuccess(result, status, xhr) { 
-  ParseJsonFileEducation(result);  
- } 
-  function ajaxFindReturnSuccess(result, status, xhr) { 
-  ParseJsonFileIndustry(result);  
- } 
- function ajaxFindReturnError(result, status, xhr) { 
-  alert("Error"); 
-  console.log("Ajax-find movie: "+status); 
- } 
-   } 
+  } 
 })//btnclick 
-function test(username) {
-	var returnValue = true;
-	if (username == "") {
-		alert("Please provide a name");
-		return value = false;
-	}
-}
-
+$("#DeleteBtn").click( function() {     var strValue = $("#id").val(); 
+   if (strValue != "") { 
+      $.ajax({ 
+    method: "DELETE", 
+  url: "http://localhost:8080/RestServerMovieProject/Movies/"+strValue,  
+         error: ajaxDelReturnError,  
+         success: ajaxDelReturnSuccess 
+      }) 
+      function ajaxDelReturnSuccess(result, status, xhr) { 
+    clearFields(); 
+    $("#title").attr("placeholder","Movie deleted" ); 
+      
+      } 
+      function ajaxDelReturnError(result, status, xhr) { 
+         alert("Error"); 
+         console.log("Ajax-find movie: "+status); 
+      } 
+ 
+ } 
+})//btnclick  
 });//End ready function
 
 function ParseJsonFileEducation(result) { 
@@ -135,9 +125,10 @@ function ParseJsonFileEducation(result) {
  
  } 
  function clearFields() { 
-  $("#id").val(""); 
-  $("#title").val(""); 
-  $("#price").val(""); 
+  $("#EducationName").val(""); 
+  $("#locale").val(""); 
+  $("#IndustryName").val(""); 
+   $("#field").val(""); 
  }
  
  

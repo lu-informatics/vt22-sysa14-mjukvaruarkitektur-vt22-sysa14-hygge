@@ -12,7 +12,8 @@
    <script src="js/hygge.js"></script> 
 <title>Hygge Rest Education</title> 
 </head> 
-<body> 
+<body>
+<input type = "hidden" id="EntityType" name = "Education" value = ""> 
    <header> 
  <p>Hygge RestClient</p> 
    </header> 
@@ -29,9 +30,9 @@
     <fieldset id="PersonalFS"> 
        <legend>Education:</legend> 
        Education name:<br> 
-       <input type="text" name="id" id="id" value=""><br> 
+       <input type="text" name="educationName" id="educationName" value=""><br> 
       Locale:<br> 
-       <input type="text" name="title" id="title" value=""> 
+       <input type="text" name="locale" id="locale" value=""> 
        <br> 
        <br> 
       <input type="button" name="submitBtn" value="Find" id="FindBtn"> 

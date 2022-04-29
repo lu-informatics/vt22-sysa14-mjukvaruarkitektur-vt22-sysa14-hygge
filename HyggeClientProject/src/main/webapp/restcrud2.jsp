@@ -5,11 +5,13 @@
 <title>Hygge Rest</title> 
 </head> 
 <body> 
+<input type = "hidden" id="EntityType" name = "Industry" value = "">
    <header> 
  <p>Hygge RestClient Industry</p> 
    </header> 
    <section id="row"> 
 <nav> 
+
       <ul> 
   <li class="active"><p></p><input type="button" onclick= "location.href = 'http://localhost:8080/HyggeClientProject/restcrud.jsp';" value= Education />
 <p></p><input type="button" onclick="location.href = 'http://localhost:8080/HyggeClientProject/restcrud2.jsp';"  value= Industry /></li>   
@@ -21,9 +23,9 @@
     <fieldset id="PersonalFS"> 
        <legend>Industry:</legend> 
        Industry name:<br> 
-       <input type="text" name="id" id="id" value=""><br> 
+       <input type="text" name="industryName" id="industryName" value=""><br> 
      Field:<br> 
-       <input type="text" name="title" id="title" value=""> 
+       <input type="text" name="field" id="field" value=""> 
        <br> 
        <br> 
       <input type="button" name="submitBtn" value="Find" id="FindBtn"> 

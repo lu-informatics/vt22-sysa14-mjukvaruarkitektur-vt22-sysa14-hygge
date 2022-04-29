@@ -37,12 +37,19 @@ public class HyggeRestServlet extends HttpServlet {
 	}
 
 	/**
+	 * @throws IOException 
+	 * @throws ServletException 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request,response);
+	}
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String pathInfo = request.getPathInfo();
+		System.out.println("path:"+pathInfo);
 		if (pathInfo == null || pathInfo.equals("/")) {
 			System.out.println("All");
 			System.out.println(pathInfo);
@@ -57,6 +64,7 @@ public class HyggeRestServlet extends HttpServlet {
 
 		String entityType = splits[1];
 		String id = splits[2];
+		System.out.println(id);
 
 		if (entityType.equals("Industry")) {
 			Industry industry = facade.findByIndustryName(id);

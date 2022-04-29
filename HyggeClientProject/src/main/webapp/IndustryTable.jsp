@@ -14,12 +14,7 @@
 	ArrayList<Industry> industries = (ArrayList<Industry>) request.getAttribute("Industries");
 	%>
 
-	<input type="hidden" name="navigate" value="search">
-	<input type="hidden" name="entityType" value="Industry">
-	</form>
-
 	<div id="dynamictable">
-
 		<table>
 			<%
 			PrintWriter writer = response.getWriter();

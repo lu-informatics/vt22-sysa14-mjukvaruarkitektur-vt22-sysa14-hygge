@@ -22,9 +22,9 @@
 			name="operation" value="createindustry" type="hidden">
 	</form>
 
-	<form action="/HyggeClientProject/IndustryServlet" method="post">
+	<form action="/HyggeClientProject/MainServlet" method="post">
 		<input type="submit" name="submit" value="Back"> <input
-			name="operation" value="searchindustry" type="hidden">
+			name="operation" value="home" type="hidden">
 	</form>
 </body>
 </html>

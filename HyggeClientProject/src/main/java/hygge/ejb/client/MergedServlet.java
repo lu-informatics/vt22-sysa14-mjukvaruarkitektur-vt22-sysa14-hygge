@@ -50,7 +50,7 @@ public class MergedServlet extends HttpServlet {
 				System.out.println("MergedServlet-search");
 				url = String.format("/Search%s.jsp", entityType);
 				break;
-				
+
 			case "create":
 				System.out.println("MergedServlet-create");
 				doPost(request, response);
@@ -64,10 +64,10 @@ public class MergedServlet extends HttpServlet {
 				System.out.println("MergedServlet-update");
 				doPut(request, response);
 				return;
-			
+
 			case "delete":
 				System.out.println("MergedServlet-delete");
-				doDelete(request,response);
+				doDelete(request, response);
 				return;
 
 			case "home":
@@ -135,17 +135,20 @@ public class MergedServlet extends HttpServlet {
 			i.setIndustryName(name);
 			i.setField(request.getParameter("txtField"));
 			facade.createIndustry(i);
+			currentIndustry = i;
 			request.setAttribute("entity", i);
 		} else {
 			Education e = new Education();
 			e.setEducationName(name);
 			e.setLocale(request.getParameter("txtLocale"));
 			facade.createEducation(e);
+			currentEducation = e;
 			request.setAttribute("entity", e);
 		}
 		request.setAttribute("origin", "table");
-		url = String.format("/Show%s.jsp", entityType);
-		dispatch(url, request, response);
+		//url = String.format("/Show%s.jsp", entityType);
+		//dispatch(url, request, response);
+		doGet(request,response);
 	}
 
 	/**
@@ -162,12 +165,15 @@ public class MergedServlet extends HttpServlet {
 			currentIndustry.setIndustryName(id);
 			currentIndustry.setField(request.getParameter("txtField"));
 			facade.updateIndustry(currentIndustry);
+			request.setAttribute("entity", currentIndustry);
 		} else {
 			currentEducation.setEducationName(id);
 			currentEducation.setLocale(request.getParameter("txtLocale"));
 			facade.updateEducation(currentEducation);
+			request.setAttribute("entity", currentEducation);
 		}
-		url = String.format("/Show%s.jsp", entityType);
+		request.setAttribute("origin", request.getParameter("origin"));
+		String.format("/Show%s.jsp", entityType);
 		dispatch(url, request, response);
 	}
 
@@ -179,21 +185,14 @@ public class MergedServlet extends HttpServlet {
 			throws ServletException, IOException {
 		entityType = request.getParameter("entityType");
 		System.out.println("MergedServlet-delete");
-		boolean deleted = false;
 		if (entityType.equals("Industry")) {
-			if (currentIndustry != null) {
+			if (currentIndustry != null)
 				facade.deleteIndustry(currentIndustry.getIndustryName());
-				deleted = true;
-			}
-		} else {
-			if (currentEducation != null) {
-				facade.deleteEducation(currentEducation.getEducationName());
-				deleted = true;
-			}
-		}
-		url = String.format((deleted ? "Search" : "Show") + "%s.jsp", entityType);
 
-		dispatch(url, request, response);
+		} else if (currentEducation != null)
+			facade.deleteEducation(currentEducation.getEducationName());
+
+		doGet(request, response);
 	}
 
 	private void dispatch(String url, HttpServletRequest request, HttpServletResponse response)

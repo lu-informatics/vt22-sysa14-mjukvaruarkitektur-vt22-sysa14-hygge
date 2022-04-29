@@ -25,7 +25,8 @@
 	</form>
 	<form action="/HyggeClientProject/MergedServlet" method="service">
 		<input type="submit" name="submit" value="Back"> <input
-			name="navigate" value="home" type="hidden">
+			name="navigate" value="fetch" type="hidden"><input
+			name="entityType" value="Industry" type="hidden">
 	</form>
 </body>
 </html>

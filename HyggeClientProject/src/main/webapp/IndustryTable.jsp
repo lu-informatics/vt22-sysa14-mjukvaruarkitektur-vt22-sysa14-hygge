@@ -13,12 +13,29 @@
 	<%
 	ArrayList<Industry> industries = (ArrayList<Industry>) request.getAttribute("Industries");
 	%>
+			
+			<input type="hidden" name="navigate" value="search">
+			<input type="hidden" name="entityType" value="Industry">
+	</form>
 
 	<div id="dynamictable">
+
 		<table>
 			<%
 			PrintWriter writer = response.getWriter();
 			writer.println("<h1>Industries</h1>");
+			
+			writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
+			writer.println("<input type=\"submit\" name=\"submit\" value=\"Home\">");
+			writer.println("<input type=\"hidden\" name=\"navigate\" value=\"home\">");
+			writer.println("</form><br><br>");
+			
+			writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
+			writer.println("<input type=\"submit\" name=\"submit\" value=\"Search\">");
+			writer.println("<input type=\"hidden\" name=\"navigate\" value=\"search\">");
+			writer.println("<input type=\"hidden\" name=\"entityType\" value=\"Industry\">");
+			writer.println("</form>");
+			
 			writer.println("<table><tr>");
 			writer.println("<td>&emsp;&emsp;&emsp;<b>Name</b></td>");
 			writer.println("<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Field</b></td>");
@@ -41,8 +58,7 @@
 			}
 			%>
 		</table>
-		<br>
-		<br>
+		<br> <br>
 		<h3>Create New Industry</h3>
 		<form action="/HyggeClientProject/MergedServlet" method="post">
 			<table>

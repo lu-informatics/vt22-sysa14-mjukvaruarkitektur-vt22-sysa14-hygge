@@ -19,29 +19,35 @@
 			<%
 			PrintWriter writer = response.getWriter();
 			writer.println("<h1>Educations</h1>");
-			
+
 			writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
 			writer.println("<input type=\"submit\" name=\"submit\" value=\"Home\">");
 			writer.println("<input type=\"hidden\" name=\"navigate\" value=\"home\">");
 			writer.println("</form>");
-			
+
 			writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
 			writer.println("<input type=\"submit\" name=\"submit\" value=\"About\">");
 			writer.println("<input type=\"hidden\" name=\"navigate\" value=\"about\">");
 			writer.println("</form>");
-			
+
 			writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
-			writer.println("<input type=\"submit\" name=\"submit\" value=\"Home\">");
-			writer.println("<input type=\"hidden\" name=\"navigate\" value=\"home\">");
+			writer.println("<input type=\"submit\" name=\"submit\" value=\"Educations\">");
+			writer.println("<input type=\"hidden\" name=\"navigate\" value=\"fetch\">");
+			writer.println("<input type=\"hidden\" name=\"entityType\" value=\"Education\">");
+			writer.println("</form>");
+
+			writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
+			writer.println("<input type=\"submit\" name=\"submit\" value=\"Industries\">");
+			writer.println("<input type=\"hidden\" name=\"navigate\" value=\"fetch\">");
+			writer.println("<input type=\"hidden\" name=\"entityType\" value=\"Industry\">");
 			writer.println("</form><br><br>");
-			
-			
+
 			writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
 			writer.println("<input type=\"submit\" name=\"submit\" value=\"Search\">");
 			writer.println("<input type=\"hidden\" name=\"navigate\" value=\"search\">");
 			writer.println("<input type=\"hidden\" name=\"entityType\" value=\"Education\">");
 			writer.println("</form>");
-			
+
 			writer.println("<table><tr>");
 			writer.println("<td>&emsp;&emsp;&emsp;<b>Name</b></td>");
 			writer.println("<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Locale</b></td>");

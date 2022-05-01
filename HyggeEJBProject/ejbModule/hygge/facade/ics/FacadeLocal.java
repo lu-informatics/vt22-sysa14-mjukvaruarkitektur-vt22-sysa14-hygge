@@ -24,4 +24,7 @@ public interface FacadeLocal {
 
 	public void deleteEducation(String educationName);
 	public void deleteIndustry(String industryName);
+	
+	public void connectEducationToIndustry(Industry industry,Education education);
+	public void detachEducationFromIndustry(Industry industry,Education education);
 }

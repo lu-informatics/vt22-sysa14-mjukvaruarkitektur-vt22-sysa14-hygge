@@ -17,7 +17,7 @@
 	<h2>Industry:</h2>
 	<form action="/HyggeClientProject/MergedServlet" method="put">
 		<p>
-			<b>Name</b>: <input type="text" name="txtID"
+			<b>Name:</b> <input type="text" name="txtID"
 				value="<%=i.getIndustryName()%>">
 		</p>
 		<p>
@@ -40,6 +40,13 @@
 			name="navigate" value=<%=(origin != null ? "fetch" : "search")%>
 			type="hidden"> <input name="entityType" value="Industry"
 			type="hidden">
+	</form>
+	<br>
+	<br>
+	<form action="/HyggeClientProject/MergedServlet" method="manageEntityRelationship">
+		<input type ="text" name="txtEducationName"><input type="hidden" name="txtIndustryName" value=<%=i.getIndustryName()%>>
+		<input type="submit" name="submit" value="Attach"><input
+			name="navigate" value="manageRelationship" type="hidden"><input name="operation" value="attach" type="hidden">
 	</form>
 </body>
 </html>

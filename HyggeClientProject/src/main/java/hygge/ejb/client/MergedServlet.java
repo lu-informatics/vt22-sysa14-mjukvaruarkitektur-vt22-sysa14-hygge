@@ -79,6 +79,11 @@ public class MergedServlet extends HttpServlet {
 				System.out.println("MainServlet-about");
 				url = "/About.jsp";
 				break;
+				
+			case "manageRelationships":
+				System.out.println("MergedServlet-manageRelationships");
+				manageEntityRelationship(request,response);
+				return;
 
 			default:
 				url = "/Home.jsp";
@@ -146,9 +151,9 @@ public class MergedServlet extends HttpServlet {
 			request.setAttribute("entity", e);
 		}
 		request.setAttribute("origin", "table");
-		//url = String.format("/Show%s.jsp", entityType);
-		//dispatch(url, request, response);
-		doGet(request,response);
+		// url = String.format("/Show%s.jsp", entityType);
+		// dispatch(url, request, response);
+		doGet(request, response);
 	}
 
 	/**
@@ -193,6 +198,20 @@ public class MergedServlet extends HttpServlet {
 			facade.deleteEducation(currentEducation.getEducationName());
 
 		doGet(request, response);
+	}
+
+	protected void manageEntityRelationship(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		Industry industry = facade.findByIndustryName(request.getParameter("txtIndustryName"));
+		Education education = facade.findByEducationName(request.getParameter("txtEducationName"));
+		String operation = request.getParameter("operation");
+		if (operation.equals("attach"))
+			facade.connectEducationToIndustry(industry, education);
+		else if (operation.equals("detach"))
+			facade.detachEducationFromIndustry(industry, education);
+		request.setAttribute("industry", industry);
+		request.setAttribute("education", education);
+		doGet(request,response);
 	}
 
 	private void dispatch(String url, HttpServletRequest request, HttpServletResponse response)

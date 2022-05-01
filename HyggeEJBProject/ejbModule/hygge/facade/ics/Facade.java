@@ -1,6 +1,7 @@
 package hygge.facade.ics;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -56,6 +57,25 @@ public class Facade implements FacadeLocal {
 
 	public Industry updateIndustry(Industry industry) {
 		return industryEAO.updateIndustry(industry);
+	}
+
+	public void connectEducationToIndustry(Industry industry, Education education) {
+		education.getConnectedIndustries().add(industry);
+		educationEAO.updateEducation(education);
+	}
+
+	public void detachEducationFromIndustry(Industry industry, Education education) {
+		education.getConnectedIndustries().remove(industry);
+		educationEAO.updateEducation(education);
+	}
+	
+	public Set<Industry>fetchConnectedIndustries(String EducationName){
+		return null;
+		
+	}
+	
+	public Set<Education>fetchConnectedEducations(String IndustryName){
+		return null;
 	}
 
 	public void deleteEducation(String educationName) {

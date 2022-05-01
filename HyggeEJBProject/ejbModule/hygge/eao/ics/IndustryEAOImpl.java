@@ -2,6 +2,8 @@ package hygge.eao.ics;
 
 
 
+import java.util.ArrayList;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -23,6 +25,11 @@ public class IndustryEAOImpl implements IndustryEAOLocal {
      */
     public IndustryEAOImpl() {
         // TODO Auto-generated constructor stub
+    }
+    
+    @SuppressWarnings("unchecked")
+	public ArrayList<Industry> getAllIndustries(){
+    	return (ArrayList<Industry>)em.createQuery("select i from Industry i").getResultList();
     }
     
     public Industry findByIndustryName(String industryName) { 

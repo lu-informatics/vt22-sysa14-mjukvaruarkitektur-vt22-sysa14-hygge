@@ -115,20 +115,13 @@ $("#DeleteBtn").click( function() {     var strValue = $("#id").val();
 });//End ready function
 
 function ParseJsonFileEducation(result) { 
-  $("#educationName").val(result.id); 
+  $("#educationName").val(result.educationName); 
   $("#locale").val(result.locale); 
- 
- } 
- function ParseJsonFileIndustry(result) { 
-  $("#indystryName").val(result.id); 
-  $("#field").val(result.field); 
  
  } 
  function clearFields() { 
   $("#EducationName").val(""); 
-  $("#locale").val(""); 
-  $("#IndustryName").val(""); 
-   $("#field").val(""); 
+  $("#locale").val("");  
  }
  
  

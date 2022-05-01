@@ -22,7 +22,7 @@ import hygge.facade.ics.FacadeLocal;
 /**
  * Servlet implementation class HyggeRestClient
  */
-@WebServlet("/HyggeRestClient")
+@WebServlet("/HyggeRestServlet")
 public class HyggeRestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@EJB
@@ -34,29 +34,19 @@ public class HyggeRestServlet extends HttpServlet {
 	public HyggeRestServlet() {
 		super();
 	}
-
-	/**
-	 * @throws IOException 
-	 * @throws ServletException 
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request,response);
-	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String pathInfo = request.getPathInfo();
 		System.out.println("path:"+pathInfo);
 		if (pathInfo == null || pathInfo.equals("/")) {
-			System.out.println("All");
+			System.out.println("åh nejjj");
 			System.out.println(pathInfo);
 			return;
 		}
 		String[] splits = pathInfo.split("/");
 		if (splits.length != 3) {
-			System.out.println("All2");
+			System.out.println("åh jaaa");
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return;
 		}

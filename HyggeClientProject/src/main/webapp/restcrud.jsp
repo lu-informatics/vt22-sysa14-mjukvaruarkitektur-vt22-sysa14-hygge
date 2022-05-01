@@ -13,22 +13,15 @@
 <title>Hygge Rest Education</title> 
 </head> 
 <body>
-<input type = "hidden" id="EntityType" name = "Education" value = ""> 
    <header> 
  <p>Hygge RestClient</p> 
    </header> 
-   <section id="row"> 
-<nav> 
-      <ul> 
-  <li class="active"><p></p><input type="button" onclick="location.href = 'http://localhost:8080/HyggeClientProject/restcrud.jsp';" value= Education />
-	<p></p><input type="button" onclick="location.href = 'http://localhost:8080/HyggeClientProject/restcrud2.jsp';"  value=Industry /></li> 
-      </ul> 
- </nav> 
+   <section id="row">  
       <section id="main"> 
          <section id="content">       
  <article> 
     <fieldset id="PersonalFS"> 
-       <legend>Education:</legend> 
+       <legend>Find or Create an Education</legend> 
        Education name:<br> 
        <input type="text" name="educationName" id="educationName" value=""><br> 
       Locale:<br> 
@@ -37,8 +30,6 @@
        <br> 
       <input type="button" name="submitBtn" value="Find" id="FindBtn"> 
       <input type="button" name="submitBtn" value="Add" id="AddBtn"> 
-      <input type="button" name="submitBtn" value="Delete" id="DeleteBtn"> 
-      <input type="button" name="submitBtn" value="Update" id="UpdateBtn"> 
               </fieldset> 
  </article> 
          </section> 
@@ -48,7 +39,68 @@
       <p>&copy; Hygge Inc. </p> 
    </footer> 
 </body> 
-</html>
+<script>
+$(document).ready(function(){
+	$("#FindBtn").click( function() {  
+		 var strValue =  $("#EntityType").val();
+		 if ( strValue != "") { 		
+	       $.ajax({ 
+	     method: "GET", 
+	url: "http://localhost:8080/HyggeClientProject/HyggeRestServlet2/"+strValue,  
+	       error: ajaxFindReturnError,  
+	       success: ajaxFindReturnSuccess 
+	 }) 
+}
+	 }) 
+	 function ajaxFindReturnSuccess(result, status, xhr) { 
+	   ParseJsonFileEducation(result);  
+	  } 
+	  function ajaxFindReturnError(result, status, xhr) { 
+	   alert("Error"); 
+	   console.log("Ajax-find education: "+status); 
+	  } 
+	    }
+	    
+	 })
+	 $("#AddBtn").click( function() {  
+   var strEducationName = $("#educationName").val();
+   var strLocale = $ ("#industryName").val(); 
+   var obj = { educationName: strEducationName, industryLoale: strLocale}; 
+   var jsonString = JSON.stringify(obj); 
+  
+   if (strEducationNumber != "") {   
+ $.ajax({ 
+  method: "POST", 
+  url: "http://localhost:8080/HyggeClientProject/HyggeRestServlet2/",  
+        data: jsonString, 
+        dataType:'json', 
+        error: ajaxAddReturnError,  
+        success: ajaxAddReturnSuccess 
+ }) 
+ function ajaxAddReturnSuccess(result, status, xhr) { 
+  clearFields(); 
+  $("#educationName").attr("placeholder","Education added"); 
+     
+ } 
+ function ajaxAddReturnError(result, status, xhr) { 
+  alert("Error Add"); 
+  console.log("Ajax-find education: "+status); 
+ } 
+ 
+   } 
+})//btnclick 
+function ParseJsonFileEducation(result) { 
+	  $("#educationName").val(result.educationName); 
+	  $("#locale").val(result.locale); 
+	 
+	 } 
+	 function clearFields() { 
+	  $("#EducationName").val(""); 
+	  $("#locale").val("");  
+	 }
+</script>
+ </html>
+
 
  
     

@@ -69,13 +69,13 @@ public class Facade implements FacadeLocal {
 		educationEAO.updateEducation(education);
 	}
 	
-	public Set<Industry>fetchConnectedIndustries(String EducationName){
-		return null;
+	public Set<Industry>fetchConnectedIndustries(Education education){
+		return educationEAO.getConnectedIndustries(education.getEducationName());
 		
 	}
 	
-	public Set<Education>fetchConnectedEducations(String IndustryName){
-		return null;
+	public Set<Education>fetchConnectedEducations(Industry industry){
+		return industryEAO.getConnectedEducations(industry.getIndustryName());
 	}
 
 	public void deleteEducation(String educationName) {

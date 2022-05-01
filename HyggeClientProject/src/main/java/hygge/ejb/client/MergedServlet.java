@@ -107,10 +107,12 @@ public class MergedServlet extends HttpServlet {
 				Industry i = facade.findByIndustryName(id);
 				currentIndustry = i;
 				request.setAttribute("entity", i);
+				request.setAttribute("connectedEntities",facade.fetchConnectedEducations(i));
 			} else {
 				Education e = facade.findByEducationName(id);
 				currentEducation = e;
 				request.setAttribute("entity", e);
+				request.setAttribute("connectedEntities",facade.fetchConnectedIndustries(e));
 			}
 		}
 

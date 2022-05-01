@@ -8,8 +8,8 @@ import java.util.Set;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.NamedNativeQuery;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import hygge.ejb.ics.Education;
 import hygge.ejb.ics.Industry;
@@ -17,7 +17,7 @@ import hygge.ejb.ics.Industry;
 /**
  * Session Bean implementation class IndustryEAOImpl
  */
-@NamedNativeQuery(name = "selectConnectedEducations", query="SELECT ei.educationName FROM EducationIndustry ei WHERE ei.industryName=?")
+
 
 @Stateless
 //@LocalBean
@@ -39,11 +39,13 @@ public class IndustryEAOImpl implements IndustryEAOLocal {
     }
     
     @SuppressWarnings("unchecked")
-	public Set<Education> getConnectedEducations(String industryName){
-    	Set<Education> connectedEducations = new HashSet<>();
-    	connectedEducations.addAll(em.createNamedQuery("selectConnectedEducations").getResultList());
-    	return connectedEducations;
-    }
+	public Set<Education> getConnectedEducations(String industryName) {
+		Set<Education> connectedEducations = new HashSet<>();
+		Query q = em.createNamedQuery("selectConnectedEducations");
+		q.setParameter(0, industryName);
+		connectedEducations.addAll(q.getResultList());
+		return connectedEducations;
+	}
     
     public Industry findByIndustryName(String industryName) { 
         return em.find(Industry.class, industryName); 

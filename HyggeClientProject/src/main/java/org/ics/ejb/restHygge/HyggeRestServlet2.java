@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-
 import javax.ejb.EJB;
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -36,8 +35,7 @@ public class HyggeRestServlet2 extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public HyggeRestServlet2() {
-      
-        
+            
     }
 
 	/**
@@ -63,7 +61,7 @@ public class HyggeRestServlet2 extends HttpServlet {
 		 return;
 		}
 		String id = splits[1];
-		Education education = facade.findByEducationName((id));
+		Education education = facade.findByEducationName(id);
 		sendAsJson(response, education);
 	}
 
@@ -140,15 +138,19 @@ public class HyggeRestServlet2 extends HttpServlet {
 	*/
 	private void sendAsJson(HttpServletResponse response, Education education)
 			 throws IOException {
-
+JsonObject ob = Json.createObjectBuilder()
+.add("educationName",education.getEducationName())
+.add("locale", education.getLocale())
+.build();
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		
 			PrintWriter out = response.getWriter();
 			response.setContentType("application/json");
-			if (education != null) {
+			if (education != null) {/*
 			out.print("{\"educationName\":");
 			out.print("\"" + education.getEducationName() + "\"");
 			out.print(",\"locale\":");
-			out.print("\"" +education.getLocale()+"\"");
-			
+			out.print("\"" +education.getLocale()+"\""); */
+			out.print(ob);
 			} else {
 			out.print("{ }");
 			}

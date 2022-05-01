@@ -30,7 +30,6 @@
 			type="hidden" name="entityType" value="Industry">
 	</form>
 
-	<p>this will be the about page.</p>
+
 </body>
 </html>
-<!-- TODO: add information about  -->

@@ -43,6 +43,7 @@ public class Education implements Serializable {
 		this.locale = locale;
 	}
 
+
 	@ManyToMany
 	@JoinTable(
 			name = "educationIndustry",
@@ -50,6 +51,7 @@ public class Education implements Serializable {
 			inverseJoinColumns = @JoinColumn(name = "industryName"))
 
 	Set<Industry> connectedIndustries;
+
 
 
 

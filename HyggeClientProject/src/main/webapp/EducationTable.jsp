@@ -11,7 +11,7 @@
 </head>
 <body>
 	<%
-	ArrayList<Education> educations = (ArrayList<Education>) request.getAttribute("Educations");
+	ArrayList<Education> educations = (ArrayList<Education>)request.getAttribute("Educations");
 	%>
 
 	<div id="dynamictable">

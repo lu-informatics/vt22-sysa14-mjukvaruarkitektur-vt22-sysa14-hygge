@@ -5,11 +5,6 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Hygge - Education Index</title>
-</head>
-<body>
 	<%
 	ArrayList<Education> educations = (ArrayList<Education>) request.getAttribute("Educations");
 	%>
@@ -18,6 +13,23 @@
 		<table>
 			<%
 			PrintWriter writer = response.getWriter();
+			
+			writer.println("<head>");
+			writer.println("<meta charset=\"ISO-8859-1\">");
+			writer.println("<title>Hygge - Education Index</title>");
+			
+			writer.println("<style>");
+			//style code goes here
+			
+			//writer.println(".menubar {");
+				/*block example*/
+			//writer.println("}");
+			
+			writer.println("</styler>");
+			
+			writer.println("</head>");
+			writer.println("<body>");
+			
 			writer.println("<h1>Educations</h1>");
 
 			writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");

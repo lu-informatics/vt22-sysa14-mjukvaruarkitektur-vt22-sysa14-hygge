@@ -227,8 +227,6 @@ public class MergedServlet extends HttpServlet {
 			facade.connectEducationToIndustry(industry, education);
 		else if (operation.equals("detach"))
 			facade.detachEducationFromIndustry(industry, education);
-		//request.setAttribute("industry", industry);
-		//request.setAttribute("education", education);
 		request.setAttribute("entity", request.getParameter("entityType").equals("Industry")?industry:education);
 		request.setAttribute("txtID",entityType.equals("Industry")?industry.getIndustryName():education.getEducationName());
 		doGet(request, response);

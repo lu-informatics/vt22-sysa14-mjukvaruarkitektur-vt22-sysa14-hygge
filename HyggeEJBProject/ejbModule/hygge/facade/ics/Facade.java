@@ -58,7 +58,7 @@ public class Facade implements FacadeLocal {
 	public Industry updateIndustry(Industry industry) {
 		return industryEAO.updateIndustry(industry);
 	}
-
+	//TODO: Fix this lazy exception thing by swapping getConnectedIndustries!!
 	public void connectEducationToIndustry(Industry industry, Education education) {
 		education.getConnectedIndustries().add(industry);
 		educationEAO.updateEducation(education);

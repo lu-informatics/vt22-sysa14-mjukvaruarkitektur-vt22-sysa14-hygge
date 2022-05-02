@@ -80,7 +80,7 @@ public class MergedServlet extends HttpServlet {
 				url = "/About.jsp";
 				break;
 				
-			case "manageRelationships":
+			case "manageRelationship":
 				System.out.println("MergedServlet-manageRelationships");
 				manageEntityRelationship(request,response);
 				return;
@@ -202,6 +202,8 @@ public class MergedServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
+	
+	//TODO: remove the lazy exception getter and replace it with the proper query-based one
 	protected void manageEntityRelationship(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Industry industry = facade.findByIndustryName(request.getParameter("txtIndustryName"));

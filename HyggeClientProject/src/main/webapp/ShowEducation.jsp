@@ -16,10 +16,11 @@
 			: (String) request.getParameter("origin");
 	System.out.println(origin);
 	String connectedIndustryDescription = "None";
-	Set<Industry> connectedIndustries = (Set<Industry>) request.getAttribute("connectedEntities");
+	Set<Industry> connectedIndustries = (Set<Industry>)request.getAttribute("connectedEntities");
 	if (connectedIndustries != null) {
+		connectedIndustryDescription="";
 		for (Industry i : connectedIndustries) {
-			connectedIndustryDescription += "\n" + i.getIndustryName();
+			connectedIndustryDescription += i.getIndustryName()+"\n";
 		}
 	}
 	%>

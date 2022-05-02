@@ -42,7 +42,8 @@ public class IndustryEAOImpl implements IndustryEAOLocal {
 	public Set<Education> getConnectedEducations(String industryName) {
 		Set<Education> connectedEducations = new HashSet<>();
 		Query q = em.createNamedQuery("selectConnectedEducations");
-		q.setParameter(0, industryName);
+		q.setParameter(1, industryName);
+		for(Object name:q.getResultList())connectedEducations.add(em.find(Education.class, (String)name));
 		connectedEducations.addAll(q.getResultList());
 		return connectedEducations;
 	}

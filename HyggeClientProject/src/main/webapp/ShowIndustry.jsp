@@ -1,4 +1,7 @@
 <%@ page import="hygge.ejb.ics.Industry"%>
+<%@ page import="hygge.ejb.ics.Education"%>
+<%@ page import="java.util.Set"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -13,6 +16,14 @@
 	String origin = request.getAttribute("origin") != null ? (String) request.getAttribute("origin")
 			: (String) request.getParameter("origin");
 	System.out.println(origin);
+	String connectedEducationDescription = "None";
+	Set<Education> connectedEducations = (Set<Education>)request.getAttribute("connectedEntities");
+	if (connectedEducations != null) {
+		connectedEducationDescription="";
+		for (Education e : connectedEducations) {
+			connectedEducationDescription +=i.getIndustryName()+"\n";
+		}
+	}
 	%>
 	<h2>Industry:</h2>
 	<form action="/HyggeClientProject/MergedServlet" method="put">

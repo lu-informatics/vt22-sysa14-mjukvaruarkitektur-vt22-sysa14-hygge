@@ -10,7 +10,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
 
-@NamedNativeQuery(name = "selectConnectedEducations", query="SELECT ei.educationName FROM EducationIndustry ei WHERE ei.industryName=?1")
+@NamedNativeQuery(name = "selectConnectedEducations", 
+query = "SELECT ei.educationName FROM EducationIndustry ei WHERE ei.industryName=?1")
 
 @Entity
 @Table(name = "Industry")

@@ -45,6 +45,7 @@ public class Education implements Serializable {
 		this.locale = locale;
 	}
 
+
 	@ManyToMany
 	@JoinTable(name = "EducationIndustry", joinColumns = @JoinColumn(name = "educationName"), inverseJoinColumns = @JoinColumn(name = "industryName"))
 	public Set<Industry> getConnectedIndustries() {
@@ -54,4 +55,5 @@ public class Education implements Serializable {
 	public void setConnectedIndustries(Set<Industry> connectedIndustries) {
 		this.connectedIndustries = connectedIndustries;
 	}
+
 }

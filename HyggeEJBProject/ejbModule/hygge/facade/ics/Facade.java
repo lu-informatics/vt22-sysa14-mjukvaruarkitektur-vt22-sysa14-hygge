@@ -58,14 +58,19 @@ public class Facade implements FacadeLocal {
 	public Industry updateIndustry(Industry industry) {
 		return industryEAO.updateIndustry(industry);
 	}
-	//TODO: Fix this lazy exception thing by swapping getConnectedIndustries!!
+	/**
+	 * Fetches a collection of industries from query,
+	 * adds industry given by parameter,
+	 * then assigns it to given education's collection.
+	 * Finally, uses EAO to perform entity merge.
+	 */
 	public void connectEducationToIndustry(Industry industry, Education education) {
 		Set<Industry> industrySet = fetchConnectedIndustries(education);
 		industrySet.add(industry);
 		education.setConnectedIndustries(industrySet);
 		educationEAO.updateEducation(education);
 	}
-
+	//works the same way as connectEducationToIndustry, but removes instead of adding.
 	public void detachEducationFromIndustry(Industry industry, Education education) {
 		Set<Industry> industrySet = fetchConnectedIndustries(education);
 		industrySet.remove(industry);

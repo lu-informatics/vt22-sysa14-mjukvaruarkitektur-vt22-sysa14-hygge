@@ -7,6 +7,29 @@
 <title>Hygge - About</title>
 </head>
 <body>
+
+<form action="/HyggeClientProject/MergedServlet" method="get">
+		<input type="submit" name="submit" value="Home"><input
+			type="hidden" name="navigate" value="home">
+	</form>
+
+	<form action="/HyggeClientProject/MergedServlet" method="get">
+		<input type="submit" name="submit" value="About"><input
+			type="hidden" name="navigate" value="about">
+	</form>
+
+	<form action="/HyggeClientProject/MergedServlet" method="get">
+		<input type="submit" name="submit" value="Educations"><input
+			type="hidden" name="navigate" value="fetch"><input
+			type="hidden" name="entityType" value="Education">
+	</form>
+
+	<form action="/HyggeClientProject/MergedServlet" method="get">
+		<input type="submit" name="submit" value="Industries"><input
+			type="hidden" name="navigate" value="fetch"><input
+			type="hidden" name="entityType" value="Industry">
+	</form>
+
+
 </body>
 </html>
-<!-- TODO: add information about  -->

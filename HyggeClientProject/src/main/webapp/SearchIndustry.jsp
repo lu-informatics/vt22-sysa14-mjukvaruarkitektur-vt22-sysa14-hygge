@@ -6,26 +6,27 @@
 <meta http-equiv="Content-Type"
 	content="text/html; charset=ISO-
 8859-1">
-<title>Hygge - Search Industry</title>
+<title>Search Industry</title>
 </head>
 <body>
-	<form action="/HyggeClientProject/IndustryServlet" method="post">
+	<form action="/HyggeClientProject/MergedServlet" method="get">
 		<table>
 			<tr>
 				<td><h2>Search Industry:</h2></td>
 			</tr>
 			<tr>
-				<td><input type="text" name="txtIndustryName" size="25"
-					maxlength="25"> <input type="submit" name="submit"
-					value="Send query" /></td>
+				<td><input type="text" name="txtID" size="25" maxlength="25">
+					<input type="submit" name="submit" value="Send query" /></td>
 				<td></td>
 			</tr>
 		</table>
-		<input name="operation" value="showindustry" type="hidden">
+		<input name="entityType" value="Industry" type="hidden"> <input
+			name="navigate" value="fetch" type="hidden">
 	</form>
-	<form action="/HyggeClientProject/MainServlet" method="post">
+	<form action="/HyggeClientProject/MergedServlet" method="service">
 		<input type="submit" name="submit" value="Back"> <input
-			name="operation" value="home" type="hidden">
+			name="navigate" value="fetch" type="hidden"><input
+			name="entityType" value="Industry" type="hidden">
 	</form>
 </body>
 </html>

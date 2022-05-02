@@ -36,7 +36,4 @@ public class Education implements Serializable {
 	public void setLocale(String locale) {
 		this.locale = locale;
 	}
-	
-	
-
 }

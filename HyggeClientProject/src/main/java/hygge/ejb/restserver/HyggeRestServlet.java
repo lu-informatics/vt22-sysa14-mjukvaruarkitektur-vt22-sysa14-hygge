@@ -22,10 +22,9 @@ import hygge.facade.ics.FacadeLocal;
 /**
  * Servlet implementation class HyggeRestClient
  */
-@WebServlet("/HyggeRestClient")
+@WebServlet("/HyggeRestServlet")
 public class HyggeRestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
 	@EJB
 	FacadeLocal facade;
 
@@ -35,28 +34,26 @@ public class HyggeRestServlet extends HttpServlet {
 	public HyggeRestServlet() {
 		super();
 	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String pathInfo = request.getPathInfo();
+		System.out.println("path:"+pathInfo);
 		if (pathInfo == null || pathInfo.equals("/")) {
-			System.out.println("All");
+			System.out.println("åh nejjj");
 			System.out.println(pathInfo);
 			return;
 		}
 		String[] splits = pathInfo.split("/");
 		if (splits.length != 3) {
-			System.out.println("All2");
+			System.out.println("åh jaaa");
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST);
 			return;
 		}
 
 		String entityType = splits[1];
 		String id = splits[2];
+		System.out.println(id);
 
 		if (entityType.equals("Industry")) {
 			Industry industry = facade.findByIndustryName(id);
@@ -180,12 +177,11 @@ public class HyggeRestServlet extends HttpServlet {
 				out.print(",\"locale\":");
 				out.print("\"" + ((Education) entity).getLocale() + "\"}");
 			}
-
 		} else
 			out.print("{}");
 		out.flush();
 	}
-	
+
 	private Serializable parseJsonEntity(BufferedReader br, String entityType) {
 		// javax.json-1.0.4.jar
 		JsonReader jsonReader = null;

@@ -193,7 +193,7 @@ position: absolute;
 					<td>Name:<input type="text" name="txtID"></td>
 				</tr>
 				<tr>
-					<td>Field:<input type="text" name="txtField"></td>
+					<td>Field:<input type="text" name="txtLocale"></td>
 				</tr>
 				<tr>
 					<td><input type="submit" name="submit" value="Create"><input

@@ -1,4 +1,6 @@
 <%@ page import="hygge.ejb.ics.Education"%>
+<%@ page import="hygge.ejb.ics.Industry"%>
+<%@ page import="java.util.Set"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -12,8 +14,38 @@
 	Education e = (Education) request.getAttribute("entity");
 	String origin = request.getAttribute("origin") != null ? (String) request.getAttribute("origin")
 			: (String) request.getParameter("origin");
-	System.out.println(origin);
+	String connectedIndustryDescription = "None";
+	Set<Industry> connectedIndustries = (Set<Industry>) request.getAttribute("connectedEntities");
+	if (connectedIndustries != null && !connectedIndustries.isEmpty()) {
+		connectedIndustryDescription = "";
+		for (Industry i : connectedIndustries) {
+			connectedIndustryDescription += i.getIndustryName() + "<br>";
+		}
+	}
 	%>
+	
+	<form action="/HyggeClientProject/MergedServlet" method="get">
+		<input type="submit" name="submit" value="Home"><input
+			type="hidden" name="navigate" value="home">
+	</form>
+
+	<form action="/HyggeClientProject/MergedServlet" method="get">
+		<input type="submit" name="submit" value="About"><input
+			type="hidden" name="navigate" value="about">
+	</form>
+
+	<form action="/HyggeClientProject/MergedServlet" method="get">
+		<input type="submit" name="submit" value="Educations"><input
+			type="hidden" name="navigate" value="fetch"><input
+			type="hidden" name="entityType" value="Education">
+	</form>
+
+	<form action="/HyggeClientProject/MergedServlet" method="get">
+		<input type="submit" name="submit" value="Industries"><input
+			type="hidden" name="navigate" value="fetch"><input
+			type="hidden" name="entityType" value="Industry">
+	</form>
+	
 	<h2>Education:</h2>
 	<form action="/HyggeClientProject/MergedServlet" method="put">
 		<p>
@@ -40,6 +72,17 @@
 			name="navigate" value=<%=(origin != null ? "fetch" : "search")%>
 			type="hidden"> <input name="entityType" value="Education"
 			type="hidden">
+	</form>
+	<p>Connected Industries:</p>
+	<p><%=connectedIndustryDescription%></p>
+	<form action="/HyggeClientProject/MergedServlet"
+		method="manageEntityRelationship">
+		<input type="text" name="txtIndustryName"><input type="hidden"
+			name="txtEducationName" value=<%=e.getEducationName()%>> <input
+			type="submit" name="submit" value="Attach"><input
+			name="navigate" value="manageRelationship" type="hidden"><input
+			name="operation" value="attach" type="hidden"><input
+			name="entityType" value="Education" type="hidden">
 	</form>
 </body>
 </html>

@@ -35,6 +35,10 @@ public class EducationEAOImpl implements EducationEAOLocal {
 		return (ArrayList<Education>) em.createQuery("select e from Education e").getResultList();
 	}
 
+	/**
+	 * Fetches a list of industryNames from native named query defined in Education.java,
+	 * fills a set of Industries with a loop by using the names via em.find
+	 */
 	@SuppressWarnings("unchecked")
 	public Set<Industry> getConnectedIndustries(String educationName) {
 		Set<Industry> connectedIndustries = new HashSet<>();

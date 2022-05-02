@@ -121,7 +121,7 @@ bottom: 150px;
 		<img src = "https://scontent.xx.fbcdn.net/v/t1.15752-9/278463040_556781142533262_2520632013925055238_n.png?stp=dst-png_p206x206&_nc_cat=103&ccb=1-5&_nc_sid=aee45a&_nc_ohc=ruope7E6Ih0AX_5py1G&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVLL9P-Zxo_n9s0OhNJt0VPVIA9sPTpyogfMQDz2kGq5bA&oe=629379B0" class= "logo">
  
 <ul>
-	<li><a href="Home.jsp">Home</a></li>	
+	<li><a href="HomeFinal.jsp">Home</a></li>	
 	<li><a href="AboutFinal.jsp">About</a></li>
 	<li><a href="IndustryTable.jsp">Industry</a></li>
 	<li><a href="EducationTable.jsp">Education</a></li>

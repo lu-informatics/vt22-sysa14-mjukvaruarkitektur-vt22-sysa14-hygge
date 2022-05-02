@@ -15,13 +15,14 @@
 	Industry i = (Industry) request.getAttribute("entity");
 	String origin = request.getAttribute("origin") != null ? (String) request.getAttribute("origin")
 			: (String) request.getParameter("origin");
-	System.out.println(origin);
+
 	String connectedEducationDescription = "None";
-	Set<Education> connectedEducations = (Set<Education>)request.getAttribute("connectedEntities");
+	Set<Education> connectedEducations = (Set<Education>) request.getAttribute("connectedEntities");
+
 	if (connectedEducations != null) {
-		connectedEducationDescription="";
+		connectedEducationDescription = "";
 		for (Education e : connectedEducations) {
-			connectedEducationDescription +=i.getIndustryName()+"\n";
+			connectedEducationDescription += i.getIndustryName() + "\n";
 		}
 	}
 	%>
@@ -54,10 +55,14 @@
 	</form>
 	<br>
 	<br>
-	<form action="/HyggeClientProject/MergedServlet" method="manageEntityRelationship">
-		<input type ="text" name="txtEducationName"><input type="hidden" name="txtIndustryName" value=<%=i.getIndustryName()%>>
+	<form action="/HyggeClientProject/MergedServlet"
+		method="manageEntityRelationship">
+		<input type="text" name="txtEducationName"><input
+			type="hidden" name="txtIndustryName" value=<%=i.getIndustryName()%>>
 		<input type="submit" name="submit" value="Attach"><input
-			name="navigate" value="manageRelationship" type="hidden"><input name="operation" value="attach" type="hidden">
+			name="navigate" value="manageRelationship" type="hidden"><input
+			name="operation" value="attach" type="hidden"><input
+			name="entityType" value="Industry" type="hidden">
 	</form>
 </body>
 </html>

@@ -16,11 +16,11 @@
 			: (String) request.getParameter("origin");
 	System.out.println(origin);
 	String connectedIndustryDescription = "None";
-	Set<Industry> connectedIndustries = (Set<Industry>)request.getAttribute("connectedEntities");
+	Set<Industry> connectedIndustries = (Set<Industry>) request.getAttribute("connectedEntities");
 	if (connectedIndustries != null) {
-		connectedIndustryDescription="";
+		connectedIndustryDescription = "";
 		for (Industry i : connectedIndustries) {
-			connectedIndustryDescription += i.getIndustryName()+"\n";
+			connectedIndustryDescription += i.getIndustryName() + "\n";
 		}
 	}
 	%>
@@ -59,7 +59,8 @@
 			name="txtEducationName" value=<%=e.getEducationName()%>> <input
 			type="submit" name="submit" value="Attach"><input
 			name="navigate" value="manageRelationship" type="hidden"><input
-			name="operation" value="attach" type="hidden">
+			name="operation" value="attach" type="hidden"><input
+			name="entityType" value="Education" type="hidden">
 	</form>
 </body>
 </html>

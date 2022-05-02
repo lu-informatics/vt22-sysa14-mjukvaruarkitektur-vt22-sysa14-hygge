@@ -16,7 +16,6 @@ import hygge.ejb.ics.Industry;
  * Session Bean implementation class HyggeEAOImpl
  */
 
-
 @Stateless
 //@LocalBean
 public class EducationEAOImpl implements EducationEAOLocal {
@@ -41,7 +40,8 @@ public class EducationEAOImpl implements EducationEAOLocal {
 		Set<Industry> connectedIndustries = new HashSet<>();
 		Query q = em.createNamedQuery("selectConnectedIndustries");
 		q.setParameter(1, educationName);
-		for(Object name:q.getResultList())connectedIndustries.add(em.find(Industry.class, (String)name));
+		for (Object name : q.getResultList())
+			connectedIndustries.add(em.find(Industry.class, (String) name));
 		return connectedIndustries;
 	}
 

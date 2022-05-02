@@ -2,10 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang = "eng">
-
 <head>
-	<meta name= "viewport" content ="width=device-width, initial-scale=1.0">
-	<title>Hygge Inc</title>
 <style>
 aside { 
     position: absolute;
@@ -119,16 +116,13 @@ position: absolute;
 }
 100%{
 	transform: translateY(-10px);
-}
-input[type=text] {
- text-decoration: none;
-	color: #fff;
-	fron-size: 17px;
-	letter-spacing: 1px;
-}
-
-
+}	
+ 
 </style>
+ <link rel="stylesheet" href="/style/hygge.css">
+	<meta name= "viewport" content ="width=device-width, initial-scale=1.0">
+	<title>Hygge Inc</title>
+
 </head>
 <body>
 <div class ="header">
@@ -163,6 +157,7 @@ input[type=text] {
 			type="hidden" name="navigate" value="fetch"><input
 			type="hidden" name="entityType" value="Tests">
 	</form>
+
 	
 </nav>	
 <div class ="text-box">
@@ -221,7 +216,7 @@ input[type=text] {
 $(document).ready(function(){ 
         $.ajax({ 
              method: "GET", 
-       url: "http://api.ipstack.com/check?access_key=b96e07c0799629b46faa36b25c063ded",  
+       url: "http://api.ipstack.com/check?access_key=1886ccbbb23efa4df72901a0892f4be7",  
              error: ajaxReturn_Error,  
              success: ajaxReturn_Success 
         }) 

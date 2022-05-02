@@ -6,6 +6,111 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+aside { 
+    position: absolute;
+	right: 7%;
+	bottom: 280px;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: #fff;
+	padding: 1px 20px;
+	border-radius: 40px;	
+ } 
+.span {
+color: #FFE4E1;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	front-family: 'poppins', sans-serif;
+}
+
+.header {
+	width:100%;
+	height:100vh;
+	background-image: url(https://miro.medium.com/max/1200/1*OEnS6-DEn56szCwdOs2mrA.jpeg);
+	background-position: center;
+	background-size: cover;
+	color: #fff;
+	padding: 0 7%;
+	position: relative;
+
+}
+nav{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 30px 0 10px; 
+
+
+}
+nav ul li {
+display: inline-block;
+list-style: none;
+margin: 10px 30px;
+
+}
+.logo{
+	width: 160px;
+	cursor: pointer;
+}
+nav ul li a{
+	text-decoration: none;
+	color: #fff;
+	fron-size: 17px;
+	letter-spacing: 1px;
+}
+nav ul li a:hover{
+	color: #ff3e3b;
+}
+.text-box{
+	margin-top: 16%;
+	font-size: 22px;
+
+}
+.text-box h1{
+	font-size: 85px;
+	font-weight: 600px;
+	line-height: 100px;
+	margin-bottom: 10px;
+
+}
+.contact {
+position: absolute;
+	left: 7%;
+	bottom: 20px;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: #fff;
+	padding: 1px 20px;
+	border-radius: 40px;	
+
+}
+
+.download {
+	position: absolute;
+	right: 7%;
+	bottom: 60px;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	color: #fff;
+	padding: 5px 5px;
+	border-radius: 40px;	
+}
+.download img{
+	width: 25px;
+	margin-left: 15px;
+	animation: move 2s linear infinite;
+
+}
+</style>
 <meta charset="ISO-8859-1">
 <title>Hygge - Education Index</title>
 </head>
@@ -18,7 +123,7 @@
 		<table>
 			<%
 			PrintWriter writer = response.getWriter();
-			writer.println("<h1>Educations</h1>");
+			writer.println("<h1>Educations hehe</h1>");
 
 			writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
 			writer.println("<input type=\"submit\" name=\"submit\" value=\"Home\">");

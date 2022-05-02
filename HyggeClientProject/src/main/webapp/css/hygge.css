@@ -107,6 +107,9 @@ width: 50px;
 }
 
 input[type=submit]{
+ font-weight: bold;
+ font-family: times new roman;
+ font-size: 30px;
   background-color: rgba(0, 0, 0, 0);
   border: none;
   color: white;
@@ -114,7 +117,9 @@ input[type=submit]{
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
+ box-sizing: border-box;
 }
+
 
 
 

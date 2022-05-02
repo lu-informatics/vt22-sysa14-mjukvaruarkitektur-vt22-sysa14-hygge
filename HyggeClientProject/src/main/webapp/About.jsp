@@ -109,6 +109,9 @@ position: absolute;
 
 }
 input[type=submit]{
+ font-weight: bold;
+ font-family: times new roman;
+ font-size: 30px;
   background-color: rgba(0, 0, 0, 0);
   border: none;
   color: white;
@@ -116,6 +119,8 @@ input[type=submit]{
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
+ box-sizing: border-box;
+
 }
 
 
@@ -153,7 +158,12 @@ input[type=submit]{
 			type="hidden" name="navigate" value="fetch"><input
 			type="hidden" name="entityType" value="Industry">
 	</form>
- 
+ 	
+ 	<form action="/HyggeClientProject/MergedServlet" method="get">
+		<input type="submit" name="submit" value="Test"><input
+			type="hidden" name="navigate" value="fetch"><input
+			type="hidden" name="entityType" value="Tests">
+	</form>
 
 
 </nav>

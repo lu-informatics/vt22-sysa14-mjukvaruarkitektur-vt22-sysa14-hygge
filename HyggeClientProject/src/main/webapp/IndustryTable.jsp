@@ -238,7 +238,6 @@ position: absolute;
 								
 			writer.println("<meta charset=\"ISO-8859-1\">");
 			writer.println("<meta name= \"viewport\" content =\"width=device-width, initial-scale=1.0\"\">");
-			writer.println("<title>Hygge - Education Index</title>");
 			
 			writer.println("</head>");
 			writer.println("<body>");
@@ -283,7 +282,11 @@ position: absolute;
 			writer.println("<table><tr>");
 			writer.println("<td>&emsp;&emsp;&emsp;<b>Name</b></td>");
 			writer.println("<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Field</b></td>");
-			writer.println("</tr></table>");
+			
+			
+			
+			
+			
 			for (Industry i : industries) {
 				writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
 				writer.println("<table>");
@@ -299,6 +302,8 @@ position: absolute;
 				writer.println("<input name=\"entityType\" value=\"Industry\" type=\"hidden\">");
 				writer.println("<input name=\"origin\" value=\"table\" type=\"hidden\">");
 				writer.println("</form>");
+				
+				writer.println("</tr></table>");
 			}
 			%>
 		</table>
@@ -307,7 +312,7 @@ position: absolute;
 		<form action="/HyggeClientProject/MergedServlet" method="post">
 			<table>
 				<tr>
-					<td>Name:<input type="text" name="txtID"></td>
+					<td>Name:<input type="text"  name="txtID"></td>
 				</tr>
 				<tr>
 					<td>Field:<input type="text" name="txtField"></td>

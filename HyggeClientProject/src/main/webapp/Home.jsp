@@ -116,10 +116,20 @@ position: absolute;
 }
 100%{
 	transform: translateY(-10px);
-}	
+}
+nav ul,.header, input[type=submit]{
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+	
  
 </style>
- <link rel="stylesheet" href="/style/hygge.css">
+ <link rel="stylesheet" href="css/hygge.css">
 	<meta name= "viewport" content ="width=device-width, initial-scale=1.0">
 	<title>Hygge Inc</title>
 

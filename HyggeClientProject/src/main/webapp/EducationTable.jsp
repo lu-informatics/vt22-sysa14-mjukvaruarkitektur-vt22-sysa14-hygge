@@ -68,9 +68,7 @@
 			writer.println("<input type=\"hidden\" name=\"entityType\" value=\"Test\">");
 			writer.println("</form>");
 
-			writer.println("<table><tr>");
-			writer.println("<div class = \"name\"><td>&emsp;&emsp;&emsp;<b>Name</b></td></div>");
-			writer.println("<div class = \"locale\"><td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Locale</b></td></div>");
+			
 			
 			writer.println("</tr></table>");
 			for (Education e : educations) {

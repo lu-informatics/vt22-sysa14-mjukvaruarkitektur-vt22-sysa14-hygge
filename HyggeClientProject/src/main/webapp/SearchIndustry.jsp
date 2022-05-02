@@ -15,7 +15,7 @@
 				<td><h2>Search Industry:</h2></td>
 			</tr>
 			<tr>
-				<td><input type="text" name="txtID" size="25" maxlength="25">
+				<td><input type="text" name="txtID" size="25" maxlength="25" placeholder = "finance" required>
 					<input type="submit" name="submit" value="Send query" /></td>
 				<td></td>
 			</tr>

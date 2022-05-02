@@ -7,17 +7,8 @@
 <html>
 <head>
 <style>
-aside { 
-    position: absolute;
-	right: 7%;
-	bottom: 280px;
-	display: flex;
-	align-items: center;
-	text-decoration: none;
-	color: #fff;
-	padding: 1px 20px;
-	border-radius: 40px;	
- } 
+
+
 .span {
 color: #FFE4E1;
 }
@@ -40,6 +31,8 @@ color: #FFE4E1;
 	position: relative;
 
 }
+
+
 nav{
 	width: 100%;
 	display: flex;
@@ -110,6 +103,8 @@ position: absolute;
 	animation: move 2s linear infinite;
 
 }
+
+
 </style>
 <meta charset="ISO-8859-1">
 <title>Hygge - Education Index</title>
@@ -120,11 +115,26 @@ position: absolute;
 	%>
 
 	<div id="dynamictable">
+
+	<style>
+	
+		#dynamictable {
+  background-color: lightblue;
+  color: black;
+  padding: 100px;
+  text-align: center;
+
+
+	</style>
+
+
 		<table>
 			<%
+		
 			PrintWriter writer = response.getWriter();
-			writer.println("<h1>Educations hehe</h1>");
-
+			writer.println("<h1>Educations</h1>");
+			
+		
 			writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
 			writer.println("<input type=\"submit\" name=\"submit\" value=\"Home\">");
 			writer.println("<input type=\"hidden\" name=\"navigate\" value=\"home\">");

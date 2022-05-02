@@ -2,7 +2,10 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang = "eng">
+
 <head>
+	<meta name= "viewport" content ="width=device-width, initial-scale=1.0">
+	<title>Hygge Inc</title>
 <style>
 aside { 
     position: absolute;
@@ -116,13 +119,16 @@ position: absolute;
 }
 100%{
 	transform: translateY(-10px);
-}	
- 
-</style>
- <link rel="stylesheet" href="/style/hygge.css">
-	<meta name= "viewport" content ="width=device-width, initial-scale=1.0">
-	<title>Hygge Inc</title>
+}
+input[type=text] {
+ text-decoration: none;
+	color: #fff;
+	fron-size: 17px;
+	letter-spacing: 1px;
+}
 
+
+</style>
 </head>
 <body>
 <div class ="header">
@@ -151,13 +157,6 @@ position: absolute;
 			type="hidden" name="navigate" value="fetch"><input
 			type="hidden" name="entityType" value="Industry">
 	</form>
-	
-	<form action="/HyggeClientProject/MergedServlet" method="get">
-		<input type="submit" name="submit" value="Test"><input
-			type="hidden" name="navigate" value="fetch"><input
-			type="hidden" name="entityType" value="Tests">
-	</form>
-
 	
 </nav>	
 <div class ="text-box">
@@ -216,7 +215,7 @@ position: absolute;
 $(document).ready(function(){ 
         $.ajax({ 
              method: "GET", 
-       url: "http://api.ipstack.com/check?access_key=1886ccbbb23efa4df72901a0892f4be7",  
+       url: "http://api.ipstack.com/check?access_key=b96e07c0799629b46faa36b25c063ded",  
              error: ajaxReturn_Error,  
              success: ajaxReturn_Success 
         }) 
@@ -271,6 +270,3 @@ function ajaxWeatherReturn_Success(result, status, xhr) {
 </script>
 
     
-
-
-

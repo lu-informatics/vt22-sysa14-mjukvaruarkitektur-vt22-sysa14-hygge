@@ -196,7 +196,7 @@ position: absolute;
 					<td>Field:<input type="text" name="txtLocale"></td>
 				</tr>
 				<tr>
-					<td><input type="submit" name="submit" value="Create"><input
+					<td><input type="submit" name="submit" value="Create" style="color:blue" ><input
 						name="navigate" value="create" type="hidden"> <input
 						name="entityType" value="Education" type="hidden"></td>
 				</tr>

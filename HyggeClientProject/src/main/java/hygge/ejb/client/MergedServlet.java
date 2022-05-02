@@ -42,56 +42,69 @@ public class MergedServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		entityType = request.getParameter("entityType");
-
+		/**
+		 * request parameter "navigate" determines user action and navigation
+		 */
 		if (request.getParameter("navigate") != null) {
 			switch (request.getParameter("navigate")) {
+			// Navigate to search page(s)
 			case "search":
 				System.out.println("MergedServlet-search");
 				url = String.format("/Search%s.jsp", entityType);
 				break;
-
+				
+			// Call doPost method to persist a new entity
 			case "create":
 				System.out.println("MergedServlet-create");
 				doPost(request, response);
 				return;
-
+				
+			// View one or more entities via either the Show or Table pages
 			case "fetch":
 				System.out.println("MergedServlet-fetch");
 				doGet(request, response);
 				return;
 				
+			// Call doPut method to merge a single entity with updated information
 			case "update":
 				System.out.println("MergedServlet-update");
 				doPut(request, response);
 				return;
-
+				
+			// Delete a single entity.
 			case "delete":
 				System.out.println("MergedServlet-delete");
 				doDelete(request, response);
 				return;
-
+				
+			// Navigate to the "home" page
 			case "home":
-				System.out.println("MainServlet-home");
+				System.out.println("MergedServlet-home");
 				url = "/Home.jsp";
 				break;
-
+				
+			// Navigate to the "about" page
 			case "about":
 				System.out.println("MainServlet-about");
 				url = "/About.jsp";
 				break;
-
+				
+			// Call manageEntityRelationship method to persist a new entry in
+			// EducationIndustry
 			case "manageRelationship":
 				System.out.println("MergedServlet-manageRelationships");
 				manageEntityRelationship(request, response);
 				return;
 
-			// if invalid or no navigate tag
+			// If invalid or no navigate tag, navigates to "home" page
 			default:
 				url = "/Home.jsp";
 			}
+			// Calls on dispatch method to forward request
 			dispatch(url, request, response);
 		}
 	}
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -99,18 +112,26 @@ public class MergedServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("MergedServlet-show");
-		String id = request.getParameter("txtID")!=null?request.getParameter("txtID"):(String)request.getAttribute("txtID");
+		String id = request.getParameter("txtID") != null ? request.getParameter("txtID")
+				: (String) request.getAttribute("txtID");
 		entityType = request.getParameter("entityType");
 		boolean requestedSingleEntity = (id != null && id.strip() != "");
 
 		// checks whether a single entity should be viewed or the entire table
 		if (requestedSingleEntity) {
 			/**
-			 * An Education or Industry object is found via facade, set as current object
-			 * (to preserve for "put" method), and attributes relevant for the JSP are set.
+			 * An Education or Industry object is found via facade, set as the current
+			 * object (to preserve for use in "put" method), and attributes relevant for the
+			 * JSP are set.
 			 */
 			if (entityType.equals("Industry")) {
 				Industry i = facade.findByIndustryName(id);
+				if(i==null) {
+					//if industry is null somehow, go to home page
+					url="/Home.jsp";
+					dispatch(url,request,response);
+					return;
+				}
 				currentIndustry = i;
 				request.setAttribute("entity", i);
 				request.setAttribute("connectedEntities", facade.fetchConnectedEducations(i));
@@ -119,6 +140,12 @@ public class MergedServlet extends HttpServlet {
 			else {
 				Education e = facade.findByEducationName(id);
 				currentEducation = e;
+				if(e==null) {
+					//if education is null somehow, go to home page TODO: more elaborate error handling
+					url="/Home.jsp";
+					dispatch(url,request,response);
+					return;
+				}
 				request.setAttribute("entity", e);
 				request.setAttribute("connectedEntities", facade.fetchConnectedIndustries(e));
 			}
@@ -146,9 +173,8 @@ public class MergedServlet extends HttpServlet {
 		String name = request.getParameter("txtID");
 
 		/**
-		 * Instantiates new entity object,
-		 * sets its values according to request parameters,
-		 * and persists it with the facade.
+		 * Instantiates new entity object, sets its values according to request
+		 * parameters, and persists it with the facade.
 		 */
 		if (entityType.equals("Industry")) {
 			Industry i = new Industry();
@@ -188,7 +214,7 @@ public class MergedServlet extends HttpServlet {
 			currentIndustry.setField(request.getParameter("txtField"));
 			facade.updateIndustry(currentIndustry);
 			request.setAttribute("entity", currentIndustry);
-		} else {
+		} else { // entity is an Education
 			currentEducation.setEducationName(id);
 			currentEducation.setLocale(request.getParameter("txtLocale"));
 			facade.updateEducation(currentEducation);
@@ -206,7 +232,7 @@ public class MergedServlet extends HttpServlet {
 			throws ServletException, IOException {
 		entityType = request.getParameter("entityType");
 		System.out.println("MergedServlet-delete");
-		//if a singular object has been selected, proceed to delete object via facade
+		// if a singular object has been selected, proceed to delete object via facade
 		if (entityType.equals("Industry")) {
 			if (currentIndustry != null)
 				facade.deleteIndustry(currentIndustry.getIndustryName());
@@ -216,29 +242,33 @@ public class MergedServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
-	// TODO: remove the fetchtype-lazy exception getter and replace it with the proper
-	// query-based one
+	/**
+	 * either attaches or detaches Education and Industry based on request parameter
+	 * "operation". calls doGet after operation is finished.
+	 */
 	protected void manageEntityRelationship(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Industry industry = facade.findByIndustryName(request.getParameter("txtIndustryName"));
 		Education education = facade.findByEducationName(request.getParameter("txtEducationName"));
 		String operation = request.getParameter("operation");
+		// determine intended operation
 		if (operation.equals("attach"))
 			facade.connectEducationToIndustry(industry, education);
 		else if (operation.equals("detach"))
 			facade.detachEducationFromIndustry(industry, education);
-		request.setAttribute("entity", request.getParameter("entityType").equals("Industry")?industry:education);
-		request.setAttribute("txtID",entityType.equals("Industry")?industry.getIndustryName():education.getEducationName());
+		// sets necessary attributes for doGet call
+		request.setAttribute("entity", request.getParameter("entityType").equals("Industry") ? industry : education);
+		request.setAttribute("txtID",
+				entityType.equals("Industry") ? industry.getIndustryName() : education.getEducationName());
 		doGet(request, response);
 	}
 
 	/**
-	 * Handles dispatching for all servlet methods
+	 * Private method that handles dispatching for all other MergedServlet methods
 	 */
 	private void dispatch(String url, HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println(url);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-		dispatcher.forward(request, response);
-	}
+		dispatcher.forward(request, response);	}
 }

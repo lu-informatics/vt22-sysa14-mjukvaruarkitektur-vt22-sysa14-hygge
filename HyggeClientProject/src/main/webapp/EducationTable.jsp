@@ -8,9 +8,6 @@
 	<%
 	ArrayList<Education> educations = (ArrayList<Education>) request.getAttribute("Educations");
 	%>
-
-	<div id="dynamictable">
-		<table>
 			<%
 			PrintWriter writer = response.getWriter();
 			
@@ -25,13 +22,14 @@
 				/*block example*/
 			//writer.println("}");
 			
-			writer.println("</styler>");
+			writer.println("</style>");
 			
 			writer.println("</head>");
 			writer.println("<body>");
 			
 			writer.println("<h1>Educations</h1>");
-
+			writer.println("<table>");
+			
 			writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
 			writer.println("<input type=\"submit\" name=\"submit\" value=\"Home\">");
 			writer.println("<input type=\"hidden\" name=\"navigate\" value=\"home\">");

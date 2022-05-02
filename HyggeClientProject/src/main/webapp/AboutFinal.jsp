@@ -122,7 +122,7 @@ bottom: 150px;
  
 <ul>
 	<li><a href="Home.jsp">Home</a></li>	
-	<li><a href="About.jsp">About</a></li>
+	<li><a href="AboutFinal.jsp">About</a></li>
 	<li><a href="IndustryTable.jsp">Industry</a></li>
 	<li><a href="EducationTable.jsp">Education</a></li>
 </ul>

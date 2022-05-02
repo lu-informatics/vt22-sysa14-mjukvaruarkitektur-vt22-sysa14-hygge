@@ -5,28 +5,10 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-
 	<%
-	ArrayList<Education> educations = (ArrayList<Education>)request.getAttribute("Educations");
+	ArrayList<Education> educations = (ArrayList<Education>) request.getAttribute("Educations");
 	%>
-
-	<div id="dynamictable">
-
-	<style>
-	
-		#dynamictable {
-  background-color: lightblue;
-  color: black;
-  padding: 100px;
-  text-align: center;
-
-
-	</style>
-
-
-		<table>
 			<%
-		
 			PrintWriter writer = response.getWriter();
 			
 			writer.println("<head>");
@@ -40,14 +22,14 @@
 				/*block example*/
 			//writer.println("}");
 			
-			writer.println("</styler>");
+			writer.println("</style>");
 			
 			writer.println("</head>");
 			writer.println("<body>");
 			
 			writer.println("<h1>Educations</h1>");
+			writer.println("<table>");
 			
-		
 			writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
 			writer.println("<input type=\"submit\" name=\"submit\" value=\"Home\">");
 			writer.println("<input type=\"hidden\" name=\"navigate\" value=\"home\">");
@@ -109,7 +91,7 @@
 					<td>Field:<input type="text" name="txtLocale"></td>
 				</tr>
 				<tr>
-					<td><input type="submit" name="submit" value="Create" style="color:blue" ><input
+					<td><input type="submit" name="submit" value="Create"><input
 						name="navigate" value="create" type="hidden"> <input
 						name="entityType" value="Education" type="hidden"></td>
 				</tr>

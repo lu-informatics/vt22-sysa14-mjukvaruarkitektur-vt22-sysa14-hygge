@@ -17,17 +17,12 @@ import hygge.ejb.ics.Industry;
  */
 
 @Stateless
-//@LocalBean
 public class IndustryEAOImpl implements IndustryEAOLocal {
 
 	@PersistenceContext(unitName = "HyggeEJBSql")
 	private EntityManager em;
 
-	/**
-	 * Default constructor.
-	 */
 	public IndustryEAOImpl() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@SuppressWarnings("unchecked")
@@ -35,7 +30,11 @@ public class IndustryEAOImpl implements IndustryEAOLocal {
 		return (ArrayList<Industry>) em.createQuery("select i from Industry i").getResultList();
 	}
 
-	@SuppressWarnings("unchecked")
+	/**
+	 * Fetches a list of educationNames from native named query defined in
+	 * Industry.java, then fills a set of Educations with a loop by using the names
+	 * via em.find
+	 */
 	public Set<Education> getConnectedEducations(String industryName) {
 		Set<Education> connectedEducations = new HashSet<>();
 		Query q = em.createNamedQuery("selectConnectedEducations");

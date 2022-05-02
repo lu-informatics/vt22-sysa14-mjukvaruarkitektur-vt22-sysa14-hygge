@@ -14,13 +14,12 @@
 	Education e = (Education) request.getAttribute("entity");
 	String origin = request.getAttribute("origin") != null ? (String) request.getAttribute("origin")
 			: (String) request.getParameter("origin");
-	System.out.println(origin);
 	String connectedIndustryDescription = "None";
 	Set<Industry> connectedIndustries = (Set<Industry>) request.getAttribute("connectedEntities");
-	if (connectedIndustries != null) {
+	if (connectedIndustries != null && !connectedIndustries.isEmpty()) {
 		connectedIndustryDescription = "";
 		for (Industry i : connectedIndustries) {
-			connectedIndustryDescription += i.getIndustryName() + "\n";
+			connectedIndustryDescription += i.getIndustryName() + "<br>";
 		}
 	}
 	%>

@@ -21,6 +21,7 @@ public class Industry implements Serializable {
 	Set<Education> connectedEducations;
 	private String field;
 
+
 	@Id
 	@Column(name = "industryName")
 	public String getIndustryName() {

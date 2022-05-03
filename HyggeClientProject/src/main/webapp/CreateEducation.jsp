@@ -13,10 +13,10 @@
 	<h2>Create New Education:</h2>
 	<form action="/HyggeClientProject/EducationServlet" method="post">
 		<p>
-			<input type="text" name="txtEducationName">
+			<input type="text" name="txtEducationName" maxlength="25" placeholder = "economics" required>
 		</p>
 		<p>
-			<input type="text" name="txtLocale">
+			<input type="text" name="txtLocale" maxlength="25" placeholder = "Lund University">
 		</p>
 		<input type="submit" name="submit" value="Create"> <input
 			name="operation" value="createeducation" type="hidden">

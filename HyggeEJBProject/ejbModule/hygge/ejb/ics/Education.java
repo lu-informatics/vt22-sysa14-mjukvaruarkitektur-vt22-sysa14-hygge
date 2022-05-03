@@ -53,4 +53,5 @@ public class Education implements Serializable {
 		this.connectedIndustries = connectedIndustries;
 	}
 
+
 }

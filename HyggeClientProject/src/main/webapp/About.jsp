@@ -108,10 +108,25 @@ position: absolute;
 	animation: move 2s linear infinite;
 
 }
+input[type=submit]{
+ font-weight: bold;
+ font-family: times new roman;
+ font-size: 30px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+ box-sizing: border-box;
+
+}
+
 
 
 </style>
-	 <link rel="stylesheet" href="/style/hygge.css">
+	 <link rel="stylesheet" href="css/hygge.css">
 	<meta name= "viewport" content ="width=device-width, initial-scale=1.0">
 	<title>Hygge Inc</title>
 
@@ -143,7 +158,12 @@ position: absolute;
 			type="hidden" name="navigate" value="fetch"><input
 			type="hidden" name="entityType" value="Industry">
 	</form>
- 
+ 	
+ 	<form action="/HyggeClientProject/MergedServlet" method="get">
+		<input type="submit" name="submit" value="Test"><input
+			type="hidden" name="navigate" value="fetch"><input
+			type="hidden" name="entityType" value="Tests">
+	</form>
 
 
 </nav>

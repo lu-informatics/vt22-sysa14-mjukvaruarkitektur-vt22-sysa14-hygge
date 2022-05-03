@@ -231,6 +231,24 @@ position: absolute;
 		<table>
 			<%
 			PrintWriter writer = response.getWriter();
+			writer.println("<head>");
+			writer.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/hygge.css\">");
+			
+							
+								
+			writer.println("<meta charset=\"ISO-8859-1\">");
+			writer.println("<meta name= \"viewport\" content =\"width=device-width, initial-scale=1.0\"\">");
+			
+			writer.println("</head>");
+			writer.println("<body>");
+
+			writer.println("<div class=\"header\">");
+			writer.println("<nav>");
+			writer.println("<img src = \"https://scontent.xx.fbcdn.net/v/t1.15752-9/278463040_556781142533262_2520632013925055238_n.png?stp=dst-png_p206x206&_nc_cat=103&ccb=1-5&_nc_sid=aee45a&_nc_ohc=ruope7E6Ih0AX_5py1G&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVLL9P-Zxo_n9s0OhNJt0VPVIA9sPTpyogfMQDz2kGq5bA&oe=629379B0\" class= \"logo\" \">");
+		
+			
+			
+			
 			writer.println("<h1>Industries</h1>");
 
 			writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
@@ -264,7 +282,11 @@ position: absolute;
 			writer.println("<table><tr>");
 			writer.println("<td>&emsp;&emsp;&emsp;<b>Name</b></td>");
 			writer.println("<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<b>Field</b></td>");
-			writer.println("</tr></table>");
+			
+			
+			
+			
+			
 			for (Industry i : industries) {
 				writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
 				writer.println("<table>");
@@ -280,6 +302,8 @@ position: absolute;
 				writer.println("<input name=\"entityType\" value=\"Industry\" type=\"hidden\">");
 				writer.println("<input name=\"origin\" value=\"table\" type=\"hidden\">");
 				writer.println("</form>");
+				
+				writer.println("</tr></table>");
 			}
 			%>
 		</table>
@@ -288,7 +312,7 @@ position: absolute;
 		<form action="/HyggeClientProject/MergedServlet" method="post">
 			<table>
 				<tr>
-					<td>Name:<input type="text" name="txtID"></td>
+					<td>Name:<input type="text"  name="txtID"></td>
 				</tr>
 				<tr>
 					<td>Field:<input type="text" name="txtField"></td>

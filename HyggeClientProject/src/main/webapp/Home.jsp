@@ -116,10 +116,26 @@ position: absolute;
 }
 100%{
 	transform: translateY(-10px);
-}	
+}
+}
+input[type=submit]{
+ font-weight: bold;
+ font-family: times new roman;
+ font-size: 30px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+ box-sizing: border-box;
+
+}
+
  
 </style>
- <link rel="stylesheet" href="/style/hygge.css">
+ <link rel="stylesheet" href="css/hygge.css">
 	<meta name= "viewport" content ="width=device-width, initial-scale=1.0">
 	<title>Hygge Inc</title>
 
@@ -128,7 +144,6 @@ position: absolute;
 <div class ="header">
 	<nav>
 		<img src = "https://scontent.xx.fbcdn.net/v/t1.15752-9/278463040_556781142533262_2520632013925055238_n.png?stp=dst-png_p206x206&_nc_cat=103&ccb=1-5&_nc_sid=aee45a&_nc_ohc=ruope7E6Ih0AX_5py1G&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVLL9P-Zxo_n9s0OhNJt0VPVIA9sPTpyogfMQDz2kGq5bA&oe=629379B0" class= "logo">
-
 
 <form action="/HyggeClientProject/MergedServlet" method="get">
 		<input type="submit" name="submit" value="Home"><input

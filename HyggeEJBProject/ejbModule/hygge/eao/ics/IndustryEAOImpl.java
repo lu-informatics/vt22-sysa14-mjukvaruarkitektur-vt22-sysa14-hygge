@@ -5,18 +5,21 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.ejb.Stateless;
+import javax.interceptor.Interceptors;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import hygge.ejb.ics.Education;
 import hygge.ejb.ics.Industry;
+import hygge.ejb.interceptors.HyggeClassLogger;
 
 /**
  * Session Bean implementation class IndustryEAOImpl
  */
 
 @Stateless
+@Interceptors(HyggeClassLogger.class)
 public class IndustryEAOImpl implements IndustryEAOLocal {
 
 	@PersistenceContext(unitName = "HyggeEJBSql")

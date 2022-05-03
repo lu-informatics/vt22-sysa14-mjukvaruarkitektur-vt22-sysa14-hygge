@@ -106,11 +106,22 @@ width: 50px;
 	margin-left: 90px;	
 }
 
+
+
+#myformSearch {
+	margin-top: 16%;
+	font-size: 22px;
+	
+}
+div education.h3 {
+margin-top: 16%;
+	font-size: 22px;	
+}
 input[type=submit]{
  font-weight: bold;
  font-family: times new roman;
  font-size: 30px;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(4, 0, 0, 0);
   border: none;
   color: white;
   padding: 16px 32px;
@@ -118,6 +129,7 @@ input[type=submit]{
   margin: 4px 2px;
   cursor: pointer;
  box-sizing: border-box;
+  word-spacing: 10px;
 }
 
 

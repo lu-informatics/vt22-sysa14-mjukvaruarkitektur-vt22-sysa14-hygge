@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang = "eng">
+
 <head>
 <style>
 aside { 
@@ -62,9 +63,6 @@ nav ul li a{
 	fron-size: 17px;
 	letter-spacing: 1px;
 }
-nav ul li a:hover{
-	color: #ff3e3b;
-}
 .text-box{
 	margin-top: 16%;
 	font-size: 22px;
@@ -89,6 +87,7 @@ position: absolute;
 	border-radius: 40px;	
 
 }
+
 
 .download {
 	position: absolute;
@@ -127,11 +126,20 @@ input[type=submit]{
   color: white;
   padding: 16px 32px;
   text-decoration: none;
-  margin: 4px 2px;
+  margin: 0px 0px;
   cursor: pointer;
  box-sizing: border-box;
+ 
+
+
 
 }
+
+input[type=submit]:hover {
+color: #ff3e3b;
+}
+
+
 
  
 </style>
@@ -145,7 +153,7 @@ input[type=submit]{
 	<nav>
 		<img src = "https://scontent.xx.fbcdn.net/v/t1.15752-9/278463040_556781142533262_2520632013925055238_n.png?stp=dst-png_p206x206&_nc_cat=103&ccb=1-5&_nc_sid=aee45a&_nc_ohc=ruope7E6Ih0AX_5py1G&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVLL9P-Zxo_n9s0OhNJt0VPVIA9sPTpyogfMQDz2kGq5bA&oe=629379B0" class= "logo">
 
-<form action="/HyggeClientProject/MergedServlet" method="get">
+<form action="/HyggeClientProject/MergedServlet" method="get"> //done
 		<input type="submit" name="submit" value="Home"><input
 			type="hidden" name="navigate" value="home">
 	</form>

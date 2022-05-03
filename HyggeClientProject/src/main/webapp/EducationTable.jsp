@@ -18,9 +18,6 @@
 			
 			writer.println("<head>");
 			writer.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"css/hygge.css\">");
-			
-							
-								
 			writer.println("<meta charset=\"ISO-8859-1\">");
 			writer.println("<meta name= \"viewport\" content =\"width=device-width, initial-scale=1.0\"\">");
 			writer.println("<title>Hygge - Education Index</title>");
@@ -54,11 +51,10 @@
 			writer.println("<input type=\"hidden\" name=\"entityType\" value=\"Industry\">");
 			writer.println("</form><br><br>");
 
-			writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
+			writer.println("<form id=\"myformSearch\" action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
 			writer.println("<input type=\"submit\" name=\"submit\" value=\"Search\">");
 			writer.println("<input type=\"hidden\" name=\"navigate\" value=\"search\">");
 			writer.println("<input type=\"hidden\" name=\"entityType\" value=\"Education\">");
-			writer.println("</form>");
 			
 			writer.println("<form action=\"/HyggeClientProject/MergedServlet\" method=\"get\">");
 			writer.println("<input type=\"submit\" name=\"submit\" value=\"Test\">");
@@ -84,13 +80,16 @@
 				writer.println("<input name=\"entityType\" value=\"Education\" type=\"hidden\">");
 				writer.println("<input name=\"origin\" value=\"table\" type=\"hidden\">");
 				writer.println("</form>");
+				writer.println("</nav>");
 				
-				writer.println("<head>");
+			
 			}
 			%>
-		</table>
-		<br> <br>
+		
+
+		<div class = "education">
 		<h3>Create New Education</h3>
+		</div>
 		<form action="/HyggeClientProject/MergedServlet" method="post">
 			<table>
 				<tr>
@@ -104,9 +103,7 @@
 						name="navigate" value="create" type="hidden"> <input
 						name="entityType" value="Education" type="hidden"></td>
 				</tr>
-
 			</table>
 		</form>
-	</div>
 </body>
 </html>

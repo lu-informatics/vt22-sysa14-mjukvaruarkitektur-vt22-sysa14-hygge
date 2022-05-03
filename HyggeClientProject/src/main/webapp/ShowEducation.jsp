@@ -4,21 +4,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang = "sv">
 <head>
 <style>
-
 </style>
  <link rel="stylesheet" href="css/hygge.css">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Hygge - Show Education</title>
+	<meta name= "viewport" content ="width=device-width, initial-scale=1.0">
+	<title>Hygge Inc</title>
+
 </head>
 <body>
 <div class ="header">
 	<nav>
+		<img src = "https://scontent.xx.fbcdn.net/v/t1.15752-9/278463040_556781142533262_2520632013925055238_n.png?stp=dst-png_p206x206&_nc_cat=103&ccb=1-5&_nc_sid=aee45a&_nc_ohc=ruope7E6Ih0AX_5py1G&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVLL9P-Zxo_n9s0OhNJt0VPVIA9sPTpyogfMQDz2kGq5bA&oe=629379B0" class= "logo">
 	
-	<img src = "https://scontent.xx.fbcdn.net/v/t1.15752-9/278463040_556781142533262_2520632013925055238_n.png?stp=dst-png_p206x206&_nc_cat=103&ccb=1-5&_nc_sid=aee45a&_nc_ohc=ruope7E6Ih0AX_5py1G&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVLL9P-Zxo_n9s0OhNJt0VPVIA9sPTpyogfMQDz2kGq5bA&oe=629379B0" class= "logo">
-		
+
+	
 	<%
 	Education e = (Education) request.getAttribute("entity");
 	String origin = request.getAttribute("origin") != null ? (String) request.getAttribute("origin")
@@ -70,11 +71,12 @@
 			<b>Locale:</b><input type="text" name="txtLocale"
 				value="<%=e.getLocale()%>">
 		</p>
-		<input type="submit" name="submit" value="Update"> <input
+		<input type="submit" name="update" value="Update"> <input
 			name="navigate" value="update" type="hidden"><input
 			name="entityType" value="Education" type="hidden"><input
 			name="origin" value=<%=origin%> type="hidden">
 	</form>
+		
 		
 
 	<form action="/HyggeClientProject/MergedServlet" method="delete">
@@ -91,6 +93,8 @@
 			type="hidden"> <input name="entityType" value="Education"
 			type="hidden">
 	</form>
+	</nav>
+	</div>
 	
 	<p>Connected Industries:</p>
 	<p><%=connectedIndustryDescription%></p>
@@ -102,7 +106,9 @@
 			name="navigate" value="manageRelationship" type="hidden"><input
 			name="operation" value="attach" type="hidden"><input
 			name="entityType" value="Education" type="hidden">
+		
 	</form>
+	
 	
 	
 </body>

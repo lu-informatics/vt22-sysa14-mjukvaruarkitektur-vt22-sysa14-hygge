@@ -12,6 +12,7 @@
 	<%
 	ArrayList<Industry> industries = (ArrayList<Industry>) request.getAttribute("Industries");
 	%>
+	<main>
 	<form action="/HyggeClientProject/MergedServlet" method="get">
 		<input type="submit" name="submit" value="Home"><input
 			type="hidden" name="navigate" value="home">
@@ -71,5 +72,6 @@
 			</tr>
 		</table>
 	</form>
+	</main>
 </body>
 </html>

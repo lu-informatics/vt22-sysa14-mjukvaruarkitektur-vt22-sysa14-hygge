@@ -4,16 +4,19 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="ISO-8859-1">
 <title>Hygge - Education Index</title>
 </head>
 <body>
 
+<main id="main-content">
+
+
 	<%
-	ArrayList<Education> educations = (ArrayList<Education>)request.getAttribute("Educations");
+	ArrayList<Education> educations = (ArrayList<Education>) request.getAttribute("Educations");
 	%>
+	
 	<form action="/HyggeClientProject/MergedServlet" method="get">
 		<input type="submit" name="submit" value="Home"><input
 			type="hidden" name="navigate" value="home">
@@ -47,8 +50,8 @@
 					name="origin" value="table" type="hidden"></td>
 				<td><input type="text" name="txtID"
 					value=<%=e.getEducationName()%> readonly></td>
-				<td><input type="text" name="txtField" value=<%=e.getLocale()%>
-					readonly></td>
+				<td><input type="text" name="txtLocale"
+					value=<%=e.getLocale()%> readonly></td>
 			</tr>
 		</form>
 		<%
@@ -57,7 +60,7 @@
 	</table>
 	<br>
 	<br>
-	<h3>Create New Education:</h3>
+	<h3>Create New Education</h3>
 	<form action="/HyggeClientProject/MergedServlet" method="post">
 		<table>
 			<tr>
@@ -73,5 +76,6 @@
 			</tr>
 		</table>
 	</form>
+	 </main>
 </body>
 </html>

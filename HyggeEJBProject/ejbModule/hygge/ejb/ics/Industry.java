@@ -48,5 +48,9 @@ public class Industry implements Serializable {
 	public void setConnectedEducations(Set<Education> connectedEducations) {
 		this.connectedEducations = connectedEducations;
 	}
+	
+	public boolean Equals(Industry other) {
+		return (industryName.equals(other.getIndustryName()) && field.equals(other.getField()));
+	}
 
 }

@@ -7,9 +7,6 @@ public class HyggeLogger {
 
 	@AroundInvoke
 	public Object logMethod(InvocationContext iCtx) throws Exception {
-		
-		
-		
 		System.out.println("**** Entering method: "+iCtx.getMethod().getName());
 		System.out.println("Target Class: "+iCtx.getTarget().getClass());
 		

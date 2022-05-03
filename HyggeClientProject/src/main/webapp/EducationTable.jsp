@@ -9,9 +9,12 @@
 <title>Hygge - Education Index</title>
 </head>
 <body>
+<main id="main-content">
+
 	<%
 	ArrayList<Education> educations = (ArrayList<Education>) request.getAttribute("Educations");
 	%>
+	
 	<form action="/HyggeClientProject/MergedServlet" method="get">
 		<input type="submit" name="submit" value="Home"><input
 			type="hidden" name="navigate" value="home">
@@ -71,5 +74,6 @@
 			</tr>
 		</table>
 	</form>
+	 </main>
 </body>
 </html>

@@ -17,7 +17,7 @@ color: #FFE4E1;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	front-family: 'poppins', sans-serif;
+	font-family: 'poppins', times new roman;
 }
 
 .header {
@@ -53,7 +53,7 @@ margin: 10px 30px;
 nav ul li a, .menybar {
 	text-decoration: none;
 	color: #fff;
-	fron-size: 17px;
+	font-size: 17px;
 	letter-spacing: 1px;
 }
 nav ul li a:hover{
@@ -106,8 +106,6 @@ width: 50px;
 	margin-left: 90px;	
 }
 
-
-
 #myformSearch {
 	margin-top: 16%;
 	font-size: 22px;
@@ -117,8 +115,13 @@ div education.h3 {
 margin-top: 16%;
 	font-size: 22px;	
 }
-input[type=submit]{
- font-weight: bold;
+
+input[type=submit]:hover {
+color: #ff3e3b;
+}
+
+#industries-form, #education-form, #home-form, #about-form {	
+font-weight: bold;
  font-family: times new roman;
  font-size: 30px;
   background-color: rgba(4, 0, 0, 0);
@@ -129,9 +132,30 @@ input[type=submit]{
   margin: 4px 2px;
   cursor: pointer;
  box-sizing: border-box;
-  word-spacing: 10px;
-}
+ word-spacing: 10px;	
 
+}
+.education h2 {
+	font-size: 40px;
+	font-weight: 20px;
+	line-height: 10px;
+	margin-bottom: 10px;
+	
+}
+.nameLocale b {
+	font-size: 25px;
+	font-weight: 600px;
+	line-height: 100px;
+	margin-bottom: 10px;
+	
+	
+}
+#back, #update, #delete {
+	display:inline;
+    list-style: none;
+    margin: 10px 30px;	
+    	
+}
 
 
 

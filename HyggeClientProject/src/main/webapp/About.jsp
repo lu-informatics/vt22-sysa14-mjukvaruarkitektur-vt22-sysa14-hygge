@@ -123,6 +123,11 @@ input[type=submit]{
 
 }
 
+
+input[type=submit]:hover {
+color: #ff3e3b;
+}
+
 </style>
 	 <link rel="stylesheet" href="css/hygge.css">
 	<meta name= "viewport" content ="width=device-width, initial-scale=1.0">
@@ -130,7 +135,7 @@ input[type=submit]{
 
 </head>
 <body>
-
+<main>
 <div class ="header">
 	<nav>
 
@@ -166,8 +171,8 @@ input[type=submit]{
 
 </nav>
 	
-<div class ="text-box">
-	<center>
+<div class ="text-box"><center>
+	
 	<h1>Who is Hygge</h1>
 	<p>~ Learn about how five student started a leading dating app ~</p>
 <p>&nbsp;</p> 
@@ -185,5 +190,6 @@ input[type=submit]{
 </footer>
 </div>
 </div>
+</main>
 </body>
 </html>

@@ -45,8 +45,8 @@
 					name="origin" value="table" type="hidden"></td>
 				<td><input type="text" name="txtID"
 					value=<%=e.getEducationName()%> readonly></td>
-				<td><input type="text" name="txtField" value=<%=e.getLocale()%>
-					readonly></td>
+				<td><input type="text" name="txtLocale"
+					value=<%=e.getLocale()%> readonly></td>
 			</tr>
 		</form>
 		<%
@@ -55,7 +55,7 @@
 	</table>
 	<br>
 	<br>
-	<h3>Create New Education:</h3>
+	<h3>Create New Education</h3>
 	<form action="/HyggeClientProject/MergedServlet" method="post">
 		<table>
 			<tr>

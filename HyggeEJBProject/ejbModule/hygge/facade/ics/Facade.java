@@ -1,6 +1,7 @@
 package hygge.facade.ics;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -56,6 +57,34 @@ public class Facade implements FacadeLocal {
 
 	public Industry updateIndustry(Industry industry) {
 		return industryEAO.updateIndustry(industry);
+	}
+	/**
+	 * Fetches a collection of industries from query,
+	 * adds industry given by parameter,
+	 * then assigns it to given education's collection.
+	 * Finally, uses EAO to perform entity merge.
+	 */
+	public void connectEducationToIndustry(Industry industry, Education education) {
+		Set<Industry> industrySet = fetchConnectedIndustries(education);
+		industrySet.add(industry);
+		education.setConnectedIndustries(industrySet);
+		educationEAO.updateEducation(education);
+	}
+	//works the same way as connectEducationToIndustry, but removes instead of adding.
+	public void detachEducationFromIndustry(Industry industry, Education education) {
+		Set<Industry> industrySet = fetchConnectedIndustries(education);
+		industrySet.remove(industry);
+		education.setConnectedIndustries(industrySet);
+		educationEAO.updateEducation(education);
+	}
+	
+	public Set<Industry>fetchConnectedIndustries(Education education){
+		return educationEAO.getConnectedIndustries(education.getEducationName());
+		
+	}
+	
+	public Set<Education>fetchConnectedEducations(Industry industry){
+		return industryEAO.getConnectedEducations(industry.getIndustryName());
 	}
 
 	public void deleteEducation(String educationName) {

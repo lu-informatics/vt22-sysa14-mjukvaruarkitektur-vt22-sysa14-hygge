@@ -5,13 +5,14 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
+
+@NamedNativeQuery(name = "selectConnectedIndustries", query = "SELECT ei.industryName FROM EducationIndustry ei WHERE ei.educationName=?1")
 
 @Entity
 @Table(name = "Education")
@@ -22,6 +23,7 @@ public class Education implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String educationName;
+	Set<Industry> connectedIndustries;
 	private String locale;
 
 	@Id
@@ -45,14 +47,14 @@ public class Education implements Serializable {
 
 
 	@ManyToMany
-	@JoinTable(
-			name = "educationIndustry",
-			joinColumns = @JoinColumn(name = "educationName"),
-			inverseJoinColumns = @JoinColumn(name = "industryName"))
+	@JoinTable(name = "EducationIndustry", joinColumns = @JoinColumn(name = "educationName"), inverseJoinColumns = @JoinColumn(name = "industryName"))
+	public Set<Industry> getConnectedIndustries() {
+		return connectedIndustries;
+	}
 
-	Set<Industry> connectedIndustries;
-
-
+	public void setConnectedIndustries(Set<Industry> connectedIndustries) {
+		this.connectedIndustries = connectedIndustries;
+	}
 
 
 }

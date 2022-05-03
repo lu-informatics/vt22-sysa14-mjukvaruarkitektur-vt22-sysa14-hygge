@@ -1,6 +1,7 @@
 package hygge.facade.ics;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.ejb.Local;
 
@@ -24,4 +25,10 @@ public interface FacadeLocal {
 
 	public void deleteEducation(String educationName);
 	public void deleteIndustry(String industryName);
+	
+	public void connectEducationToIndustry(Industry industry,Education education);
+	public void detachEducationFromIndustry(Industry industry,Education education);
+	
+	public Set<Industry> fetchConnectedIndustries(Education education);
+	public Set<Education> fetchConnectedEducations(Industry industry);
 }

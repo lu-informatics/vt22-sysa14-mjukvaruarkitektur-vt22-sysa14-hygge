@@ -52,5 +52,9 @@ public class Education implements Serializable {
 	public void setConnectedIndustries(Set<Industry> connectedIndustries) {
 		this.connectedIndustries = connectedIndustries;
 	}
+	
+	public boolean Equals(Education other) {
+		return (educationName.equals(other.getEducationName())&&locale.equals(other.getLocale()));
+	}
 
 }

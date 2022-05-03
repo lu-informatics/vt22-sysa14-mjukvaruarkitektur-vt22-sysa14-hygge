@@ -52,43 +52,43 @@ public class MergedServlet extends HttpServlet {
 				System.out.println("MergedServlet-search");
 				url = String.format("/Search%s.jsp", entityType);
 				break;
-				
+
 			// Call doPost method to persist a new entity
 			case "create":
 				System.out.println("MergedServlet-create");
 				doPost(request, response);
 				return;
-				
+
 			// View one or more entities via either the Show or Table pages
 			case "fetch":
 				System.out.println("MergedServlet-fetch");
 				doGet(request, response);
 				return;
-				
+
 			// Call doPut method to merge a single entity with updated information
 			case "update":
 				System.out.println("MergedServlet-update");
 				doPut(request, response);
 				return;
-				
+
 			// Delete a single entity.
 			case "delete":
 				System.out.println("MergedServlet-delete");
 				doDelete(request, response);
 				return;
-				
+
 			// Navigate to the "home" page
 			case "home":
 				System.out.println("MergedServlet-home");
 				url = "/Home.jsp";
 				break;
-				
+
 			// Navigate to the "about" page
 			case "about":
 				System.out.println("MainServlet-about");
 				url = "/About.jsp";
 				break;
-				
+
 			// Call manageEntityRelationship method to persist a new entry in
 			// EducationIndustry
 			case "manageRelationship":
@@ -126,10 +126,10 @@ public class MergedServlet extends HttpServlet {
 			 */
 			if (entityType.equals("Industry")) {
 				Industry i = facade.findByIndustryName(id);
-				if(i==null) {
-					//if industry is null somehow, go to home page
-					url="/Home.jsp";
-					dispatch(url,request,response);
+				if (i == null) {
+					// if industry is null somehow, go to home page
+					url = "/Home.jsp";
+					dispatch(url, request, response);
 					return;
 				}
 				currentIndustry = i;
@@ -140,10 +140,11 @@ public class MergedServlet extends HttpServlet {
 			else {
 				Education e = facade.findByEducationName(id);
 				currentEducation = e;
-				if(e==null) {
-					//if education is null somehow, go to home page TODO: more elaborate error handling
-					url="/Home.jsp";
-					dispatch(url,request,response);
+				if (e == null) {
+					// if education is null somehow, go to home page TODO: more elaborate error
+					// handling
+					url = "/Home.jsp";
+					dispatch(url, request, response);
 					return;
 				}
 				request.setAttribute("entity", e);
@@ -204,7 +205,6 @@ public class MergedServlet extends HttpServlet {
 		System.out.println("MergedServlet-update");
 		String id = request.getParameter("txtID");
 		entityType = request.getParameter("entityType");
-
 		/**
 		 * sets the entity's values according to request parameters, then updates via
 		 * facade. finally, sets current object as "entity" attribute for dispatch
@@ -270,5 +270,6 @@ public class MergedServlet extends HttpServlet {
 			throws ServletException, IOException {
 		System.out.println(url);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
-		dispatcher.forward(request, response);	}
+		dispatcher.forward(request, response);
+	}
 }

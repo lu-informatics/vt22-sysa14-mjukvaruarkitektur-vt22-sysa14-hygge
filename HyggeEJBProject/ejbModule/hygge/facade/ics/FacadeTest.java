@@ -11,8 +11,10 @@ public class FacadeTest extends TestCase {
 	String expectedField;
 	String expectedIndustryName; 
 	
-	Industry i; 
-	Education e; 
+	Industry i1; 
+	Industry i2;
+	Education e1; 
+	Education e2; 
 	
 	public FacadeTest(String name) {
 		super(name);
@@ -25,19 +27,23 @@ public class FacadeTest extends TestCase {
 		expectedField = "Politician"; 
 		expectedIndustryName = "Sales"; 
 		
-		Industry i = new Industry();
-		i.setIndustryName(expectedIndustryName);
-		i.setField(expectedField);
-		Education e = new Education();
-		e.setEducationName(expectedEducationName);
-		e.setLocale(expectedLocale);
+		Industry i1 = new Industry();
+		i1.setIndustryName(expectedIndustryName);
+		i1.setField(expectedField);
+		Education e1 = new Education();
+		e1.setEducationName(expectedEducationName);
+		e1.setLocale(expectedLocale);
+		i2.setIndustryName(""); = new Industry("Finance","Accountant");
+		
 				
 	}
 
 	protected void tearDown() throws Exception {
 		super.tearDown();
-		i = null;
-		e = null; 
+		i1 = null;
+		i2 = null;
+		e1 = null; 
+		e2 = null;
 	}
 
 	public void testGetLocale() {
@@ -83,7 +89,7 @@ public class FacadeTest extends TestCase {
 	}
 	
 	public void testFindByIndustryName() {
-		
+		assertTrue(!);
 	}
 
 	public void testUpdateEducation() {

@@ -1,8 +1,9 @@
-package hygge.facade.ics;
+package hygge.ejb.client;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 
+import hygge.facade.ics.FacadeLocal;
 import junit.framework.TestCase;
 
 public class FacadeTest extends TestCase {

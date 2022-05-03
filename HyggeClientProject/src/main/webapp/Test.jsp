@@ -32,24 +32,22 @@
 }
 
 
+
 </style>
 
-<div class ="header">
-	<nav>
+<div class ="header" >
+	
 		<img src = "https://scontent.xx.fbcdn.net/v/t1.15752-9/278463040_556781142533262_2520632013925055238_n.png?stp=dst-png_p206x206&_nc_cat=103&ccb=1-5&_nc_sid=aee45a&_nc_ohc=ruope7E6Ih0AX_5py1G&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVLL9P-Zxo_n9s0OhNJt0VPVIA9sPTpyogfMQDz2kGq5bA&oe=629379B0" class= "logo">
 
 
-
-
-</nav>
 </div>
 
 </head>
 
 
 
-<h2>Welcome</h2>
-<h2> <span style="color:#B29B35;"> This is the test Page!</span> </h2>
+<h2><span style="color:#FFFFFF;"> Welcome to test page!</span> </h2>
+<h2> <span style="color:#FFFFFF;"> Click the button to test the facade!</span> </h2>
  
 <form action="/action_page.php">
 

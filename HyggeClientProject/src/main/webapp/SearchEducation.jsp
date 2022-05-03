@@ -6,6 +6,19 @@
 <meta http-equiv="Content-Type"
 	content="text/html; charset=ISO-
 8859-1">
+
+<style>
+.button {
+  background-color: #B4B6D3; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+</style>
 <title>Search Education</title>
 </head>
 <body>
@@ -16,7 +29,7 @@
 			</tr>
 			<tr>
 				<td><input type="text" name="txtID" size="25" maxlength="25" placeholder = "economics" required>
-					<input type="submit" name="submit" value="Send query" /></td>
+					<input type="button" class= "button" name="submit" value="Send query" /></td>
 				<td></td>
 			</tr>
 		</table>
@@ -24,7 +37,7 @@
 			name="navigate" value="fetch" type="hidden">
 	</form>
 	<form action="/HyggeClientProject/MergedServlet" method="service">
-		<input type="submit" name="submit" value="Back"> <input
+		<input type="submit" name="submit" class= "button" value="Back"> <input
 			name="navigate" value="fetch" type="hidden"><input
 			name="entityType" value="Education" type="hidden">
 	</form>

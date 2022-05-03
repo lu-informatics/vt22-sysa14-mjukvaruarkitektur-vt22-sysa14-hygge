@@ -50,7 +50,7 @@
 			</form>
 
 			<form action="/HyggeClientProject/MergedServlet" method="get">
-				<input type="submit" id="education-form" name="submit"
+				<input type="submit" id="educations-form" name="submit"
 					value="Educations"><input type="hidden" name="navigate"
 					value="fetch"><input type="hidden" name="entityType"
 					value="Education">
@@ -65,7 +65,7 @@
 			</form>
 
 			<form action="/HyggeClientProject/MergedServlet" method="get">
-				<input type="submit" id="industries-form" name="submit" value="Test"><input
+				<input type="submit" id="test-form" name="submit" value="Test"><input
 					type="hidden" name="navigate" value="fetch"><input
 					type="hidden" name="entityType" value="Test">
 			</form>
@@ -74,8 +74,9 @@
 
 		</nav>
 		<div class="education text-box">
+			<h2>Edit Education</h2>
+			<br>
 
-			<h2>Edit Education:</h2>
 		</div>
 		
 		<table>
@@ -107,13 +108,21 @@
 				type="hidden"> <input name="entityType" value="Education"
 				type="hidden">
 		</form></td>
+		
+		
+
+
 
 				</tr>
+			
+			
 
 			</table>
 		
 		<p>Connected Industries:</p>
 		<p><%=connectedIndustryDescription%></p>
+		<br>
+		<br>
 		<form action="/HyggeClientProject/MergedServlet"
 			method="manageEntityRelationship">
 			<input type="text" name="txtIndustryName"><input

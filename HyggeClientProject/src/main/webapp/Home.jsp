@@ -63,16 +63,17 @@ nav ul li a{
 	fron-size: 17px;
 	letter-spacing: 1px;
 }
-.text-box{
+.text-box:hover{
 	margin-top: 16%;
 	font-size: 22px;
+	color: #800080;
 
 }
-.text-box h1{
 	font-size: 85px;
 	font-weight: 600px;
 	line-height: 100px;
 	margin-bottom: 10px;
+	color: #800080;
 
 }
 .contact {
@@ -100,10 +101,11 @@ position: absolute;
 	padding: 5px 5px;
 	border-radius: 40px;	
 }
-.download img{
+.download img:hover{
 	width: 25px;
 	margin-left: 15px;
 	animation: move 2s linear infinite;
+	color: #800080;
 
 }
 @keyframes move{

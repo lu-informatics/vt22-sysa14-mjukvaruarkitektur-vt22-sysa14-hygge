@@ -29,7 +29,6 @@ public class FacadeTest extends TestCase {
 		testEducation.setLocale(expectedLocale);
 		
 		facade.createEducation(testEducation);
-		
 	}
 
 	protected void tearDown() throws Exception {

@@ -55,29 +55,42 @@ input[type=submit]:hover {
 						type="hidden" name="entityType" value="Industry">
 				</form>
 
-				<form action="/HyggeClientProject/MergedServlet" method="get">
+				<form action="/HyggeClientProject/index.html" method="get">
 					<input type="submit" name="submit" value="Test"><input
 						type="hidden" name="navigate" value="fetch"><input
 						type="hidden" name="entityType" value="Tests">
 				</form>
 
 			</nav>
-			<br><br><br><br><br><br><br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
 			<form action="/HyggeClientProject/MergedServlet" method="get">
 				<table>
 					<tr>
 						<td><h2>Search Industry:</h2></td>
 					</tr>
 					<tr>
-						<td><input type="text" id ="txtID1" name="txtID" size="25" maxlength="25">
-							<input type="submit" name="submit" value="Send query" /><input
-							name="entityType" value="Industry" type="hidden"> <input
-							name="navigate" value="fetch" type="hidden"></td>
+						<td><input type="text" id="txtID1" name="txtID" size="25"
+							maxlength="25"> <input type="submit" name="submit"
+							value="Send query" /><input name="entityType" value="Industry"
+							type="hidden"> <input name="navigate" value="fetch"
+							type="hidden"></td>
 						<td></td>
 					</tr>
 				</table>
 			</form>
 		</div>
 	</main>
+	<div class="contact">
+		<footer>
+			<p>© 2022 Hygge Inc.</p>
+			<p>Contact information: HyggeIncContact@gmail.com</p>
+		</footer>
+	</div>
 </body>
 </html>

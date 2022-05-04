@@ -9,6 +9,15 @@
  <link rel="stylesheet" type="text/css" href= "css/hygge.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Hygge - Manage Industry</title>
+
+<script> function validateForm(form,field1,field2) {
+	  let x = document.forms[form][field1].value;
+	  let y = document.forms[form][field2].value;
+	  if (x == "" || !x.match(/^[A-Za-z]+$/) || y==""||!y.match(/^[A-Za-z]+$/) ) {
+	    alert("Please fill out all fields, using alphabets only.");
+	    return false;
+	  }
+	}</script>
 </head>
 
 <body>
@@ -20,12 +29,12 @@
 			Industry i = (Industry) request.getAttribute("entity");
 			String origin = request.getAttribute("origin") != null ? (String) request.getAttribute("origin")
 					: (String) request.getParameter("origin");
-			String connectedIndustryDescription = "None";
+			String connectedEducationDescription = "None";
 			Set<Education> connectedEducations = (Set<Education>) request.getAttribute("connectedEntities");
 			if (connectedEducations != null && !connectedEducations.isEmpty()) {
-				connectedIndustryDescription = "";
+				connectedEducationDescription = "";
 				for (Education e: connectedEducations) {
-					connectedIndustryDescription += i.getIndustryName() + "<br>";
+					connectedEducationDescription += e.getEducationName() + "<br>";
 				}
 			}
 			%>
@@ -70,29 +79,25 @@
 		
 		<table>
 				<tr>
-					<td><form action="/HyggeClientProject/MergedServlet" method="put">
-			
-				<b>Name:</b><input type="text" id="txtID" name="txtID"
-					value="<%=i.getIndustryName()%>"> <b>Field:</b><input
+					<td><form name="updateForm" action="/HyggeClientProject/MergedServlet" method="put" onsubmit="return validateForm('updateForm','txtID','txtField')">
+				<b id="txtID1">Name:</b><input type="text" id="txtID" name="txtID"
+					value="<%=i.getIndustryName()%>"> <b id="txtID1">Field:</b><input
 					type="text" id="txtID2" name="txtField" value="<%=i.getField()%>">
-			
-			
-			<input type="submit" id="update" name="update" value="Update">
+			<input type="submit" id="txtID1" name="update" value="Update">
 			<input name="navigate" value="update" type="hidden"><input
 				name="entityType" value="Industry" type="hidden"><input
 				name="origin" value=<%=origin%> type="hidden">
 		</form><td>
-
 					<td>
 		<form action="/HyggeClientProject/MergedServlet" method="delete">
-			<input type="submit" id="delete" name="submit" value="Delete">
+			<input type="submit" id="txtID1" name="submit" value="Delete">
 			<input name="navigate" value="delete" type="hidden"><input
 				name="entityType" value="Industry" type="hidden"><input
 				name="origin" value="<%=origin%>" type="hidden">
 		</form></td>
 
 					<td><form action="/HyggeClientProject/MergedServlet" method="service">
-			<input type="submit" id="back" name="submit" value="Back"> <input
+			<input type="submit" id="txtID1" name="submit" value="Back"> <input
 				name="navigate" value="<%=(origin != null ? "fetch" : "search")%>"
 				type="hidden"> <input name="entityType" value="Industry"
 				type="hidden">
@@ -100,16 +105,15 @@
 				</tr>
 			</table>
 		
-		<p>Connected Industries:</p>
-		<p><%=connectedIndustryDescription%></p>
-		<br>
-		<br>
+		<p id="txtID1">Connected Industries:</p>
+		<p id="txtID1"><%=connectedEducationDescription%></p>
+
 		<form action="/HyggeClientProject/MergedServlet"
 			method="manageEntityRelationship">
-			<input type="text" name="txtIndustryName"><input
+			<input type="text" id="txtID1" name="txtIndustryName"><input
 				type="hidden" name="txtEducationName"
 				value="<%=i.getIndustryName()%>"> <input type="submit"
-				name="submit" value="Attach"><input name="navigate"
+				name="submit" id="txtID1" value="Attach"><input name="navigate"
 				value="manageRelationship" type="hidden"><input
 				name="operation" value="attach" type="hidden"><input
 				name="entityType" value="Education" type="hidden">
@@ -117,5 +121,11 @@
 		</form>
 	</div>
 	</main>
+	<div class ="contact">
+<footer>
+  <p>© 2022 Hygge Inc.</p>
+  <p>Contact information: HyggeIncContact@gmail.com</p>
+</footer>
+</div>
 </body>
 </html>

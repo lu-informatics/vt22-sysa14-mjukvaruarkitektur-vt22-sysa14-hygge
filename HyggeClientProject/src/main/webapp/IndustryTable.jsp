@@ -9,7 +9,14 @@
 <link rel="stylesheet" type="text/css" href="css/hygge.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Hygge - Show Industries</title>
-<script>src="validation.js"</script>
+<script>function validateForm(form,field1,field2) {
+	  let x = document.forms[form][field1].value;
+	  let y = document.forms[form][field2].value;
+	  if (x == "" || !x.match(/^[A-Za-z]+$/) || y==""||!y.match(/^[A-Za-z]+$/) ) {
+	    alert("Please fill out all fields, using alphabets only.");
+	    return false;
+	  }
+	}</script>
 </head>
 
 <body>
@@ -90,7 +97,7 @@
 			</table>
 			<br> <br>
 			<h3>Create New Industry</h3>
-			<form action="/HyggeClientProject/MergedServlet" method="post">
+			<form name="createForm" action="/HyggeClientProject/MergedServlet" onsubmit="return validateForm('createForm','txtID','txtField')" method="post">
 				<table>
 					<tr>
 						<td>Name:<input type="text" id="txtID1" name="txtID"></td>

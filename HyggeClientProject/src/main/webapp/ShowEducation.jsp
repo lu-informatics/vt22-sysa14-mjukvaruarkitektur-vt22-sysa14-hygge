@@ -46,10 +46,7 @@
 			<form action="/HyggeClientProject/MergedServlet" method="get">
 				<input type="submit" id="home-form" name="submit" value="Home"><input
 					type="hidden" name="navigate" value="Home">
-
 			</form>
-
-
 			<form action="/HyggeClientProject/MergedServlet" method="get">
 				<input type="submit" id="about-form" name="submit" value="About"><input
 					type="hidden" name="navigate" value="About">
@@ -61,23 +58,17 @@
 					value="fetch"><input type="hidden" name="entityType"
 					value="Education">
 			</form>
-
-
 			<form action="/HyggeClientProject/MergedServlet" method="get">
 				<input type="submit" id="industries-form" name="submit"
 					value="Industries"><input type="hidden" name="navigate"
 					value="fetch"><input type="hidden" name="entityType"
 					value="Industry">
 			</form>
-
 			<form action="/HyggeClientProject/MergedServlet" method="get">
 				<input type="submit" id="test-form" name="submit" value="Test"><input
 					type="hidden" name="navigate" value="fetch"><input
 					type="hidden" name="entityType" value="Test">
 			</form>
-
-
-
 		</nav>
 		<div class="education text-box">
 			<h2>Edit Education</h2>
@@ -89,12 +80,12 @@
 				<tr>
 					<td><form action="/HyggeClientProject/MergedServlet" method="put">
 			
-				<b>Name:</b><input type="text" name="txtID"
+				<b>Name:</b><input type="text" id="txtID1" name="txtID"
 					value="<%=e.getEducationName()%>"> <b>Locale:</b><input
-					type="text" name="txtLocale" value="<%=e.getLocale()%>">
+					type="text" id="txtID1" name="txtLocale" value="<%=e.getLocale()%>">
 			
 			
-			<input type="submit" id="update" name="update" value="Update">
+			<input type="submit" id="txtID1" name="update" value="Update">
 			<input name="navigate" value="update" type="hidden"><input
 				name="entityType" value="Education" type="hidden"><input
 				name="origin" value="<%=origin%>" type="hidden">
@@ -102,47 +93,41 @@
 
 					<td>
 		<form action="/HyggeClientProject/MergedServlet" method="delete">
-			<input type="submit" id="delete" name="submit" value="Delete">
+			<input type="submit" id="txtID1" name="submit" value="Delete">
 			<input name="navigate" value="delete" type="hidden"><input
 				name="entityType" value="Education" type="hidden"><input
 				name="origin" value="<%=origin%>" type="hidden">
 		</form></td>
 
 					<td><form action="/HyggeClientProject/MergedServlet" method="service">
-			<input type="submit" id="back" name="submit" value="Back"> <input
+			<input type="submit" id="txtID1" name="submit" value="Back"> <input
 				name="navigate" value="<%=(origin != null ? "fetch" : "search")%>"
 				type="hidden"> <input name="entityType" value="Education"
 				type="hidden">
 		</form></td>
-		
-		
-
-
-
 				</tr>
-			
-			
-
-			</table>
-		
-		<p>Connected Industries:</p>
-		<p><%=connectedIndustryDescription%></p>
-		<br>
-		<br>
+			</table>	
+		<p id="txtID1">Connected Industries:</p>
+		<p id="txtID1"><%=connectedIndustryDescription%></p>
 		<form action="/HyggeClientProject/MergedServlet"
 			method="manageEntityRelationship">
-			<input type="text" name="txtIndustryName"><input
-				type="hidden" name="txtEducationName"
+			<input type="text" id="txtID1" name="txtIndustryName"><input
+				type="hidden" id="txtID1" name="txtEducationName"
 				value="<%=e.getEducationName()%>"> <input type="submit"
-				name="submit" value="Attach"><input name="navigate"
+				name="submit" id="txtID1" value="Attach"><input name="navigate"
 				value="manageRelationship" type="hidden"><input
 				name="operation" value="attach" type="hidden"><input
 				name="entityType" value="Education" type="hidden">
-
 		</form>
 	</div>
 
 </main>
+<div class ="contact">
+<footer>
+  <p>© 2022 Hygge Inc.</p>
+  <p>Contact information: HyggeIncContact@gmail.com</p>
+</footer>
+</div>
 </body>
 
 </html>

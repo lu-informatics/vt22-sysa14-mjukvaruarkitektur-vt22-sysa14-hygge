@@ -174,7 +174,7 @@ color: #ff3e3b;
 			type="hidden" name="entityType" value="Industry">
 	</form>
 	
-	<form action="/HyggeClientProject/MergedServlet" method="get">
+	<form action="/HyggeClientProject/index.html" method="get">
 		<input type="submit" name="submit" value="Test"><input
 			type="hidden" name="navigate" value="fetch"><input
 			type="hidden" name="entityType" value="Tests">
@@ -188,12 +188,7 @@ color: #ff3e3b;
 <a href = "#" class= "download">DOWNLOAD THE APP<img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/279275934_4956982131024421_3508513496646403461_n.png?stp=dst-png_p206x206&_nc_cat=105&ccb=1-5&_nc_sid=aee45a&_nc_ohc=5q5bVbwbK-oAX9cOVUu&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKGP0XUfQksObxDCHlSiold805I5Bj6QxvCH4A244eLyw&oe=6293599B" width="20" height="20"></a>
 </div>
 
-<div class ="contact">
-<footer>
-  <p>© 2022 Hygge Inc.</p>
-  <p>Contact information: HyggeIncContact@gmail.com</p>
-</footer>
-</div>
+
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"> 
   </script> 
@@ -231,10 +226,13 @@ color: #ff3e3b;
          </section> 
       </section> 
    </section> 
-   <footer> 
-   </footer>
-   </main> 
-
+   </main>
+	<div class="contact">
+		<footer>
+			<p>© 2022 Hygge Inc.</p>
+			<p>Contact information: HyggeIncContact@gmail.com</p>
+		</footer>
+	</div>
 </body>
 </html>
 <script> 

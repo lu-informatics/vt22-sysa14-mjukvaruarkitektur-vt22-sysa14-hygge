@@ -19,15 +19,15 @@ public class FacadeTest extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 		Context context = new InitialContext();
-		facade = (FacadeLocal)context.lookup("java:app/HyggeEJBProject/Facade!hygge.facade.ics.FacadeLocal");
+		facade = (FacadeLocal) context.lookup("java:app/HyggeEJBProject/Facade!hygge.facade.ics.FacadeLocal");
 		testEducation = new Education();
-		
+
 		expectedName = "testLTH";
 		expectedLocale = "testLund";
-		
+
 		testEducation.setEducationName(expectedName);
 		testEducation.setLocale(expectedLocale);
-		
+
 		facade.createEducation(testEducation);
 	}
 
@@ -47,6 +47,6 @@ public class FacadeTest extends TestCase {
 	public void testUpdateEducation() {
 		testEducation.setLocale("testHelsingborg");
 		facade.updateEducation(testEducation);
-		assertEquals(facade.findByEducationName("testLTH").getLocale(),"testHelsingborg");
+		assertEquals(facade.findByEducationName("testLTH").getLocale(), "testHelsingborg");
 	}
 }

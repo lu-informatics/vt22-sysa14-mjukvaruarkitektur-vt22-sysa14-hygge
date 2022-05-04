@@ -67,7 +67,7 @@ nav ul li a{
 .text-box:hover{
 	margin-top: 16%;
 	font-size: 22px;
-	color: #800080;
+	color: #ff3e3b;
 
 }
 
@@ -185,7 +185,7 @@ color: #ff3e3b;
 <div class ="text-box">
 	<h1>Go on<br>Your First Date</h1>
 </div>
-<a href = "#" class= "download">DOWNLOAD THE APP<img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/279275934_4956982131024421_3508513496646403461_n.png?stp=dst-png_p206x206&_nc_cat=105&ccb=1-5&_nc_sid=aee45a&_nc_ohc=5q5bVbwbK-oAX9cOVUu&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKGP0XUfQksObxDCHlSiold805I5Bj6QxvCH4A244eLyw&oe=6293599B" width="20" height="20"></a>
+<a href = "#" class= "download" id="txtID1">DOWNLOAD THE APP<img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/279275934_4956982131024421_3508513496646403461_n.png?stp=dst-png_p206x206&_nc_cat=105&ccb=1-5&_nc_sid=aee45a&_nc_ohc=5q5bVbwbK-oAX9cOVUu&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKGP0XUfQksObxDCHlSiold805I5Bj6QxvCH4A244eLyw&oe=6293599B" width="20" height="20"></a>
 </div>
 
 
@@ -239,7 +239,7 @@ color: #ff3e3b;
 $(document).ready(function(){ 
         $.ajax({ 
              method: "GET", 
-       url: "http://api.ipstack.com/check?access_key=1886ccbbb23efa4df72901a0892f4be7",  
+       url: "http://api.ipstack.com/check?access_key=985d156d89ec655945caef68bdd35406",  
              error: ajaxReturn_Error,  
              success: ajaxReturn_Success 
         }) 
@@ -265,7 +265,7 @@ $(document).ready(function(){
  $.ajax({ 
              method: "GET", 
       url: "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+ 
-   long+"&units=metric"+ "&APPID=e0b52cb8538047de8020c53dde9e732c",  
+   long+"&units=metric"+ "&APPID=d7db8c14a5eb5d7bc0a04cf5f5cea42b",  
                 error: ajaxWeatherReturn_Error,  
                 success: ajaxWeatherReturn_Success 
             })

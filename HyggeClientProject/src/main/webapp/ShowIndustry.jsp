@@ -80,18 +80,14 @@
 		<table>
 				<tr>
 					<td><form name="updateForm" action="/HyggeClientProject/MergedServlet" method="put" onsubmit="return validateForm('updateForm','txtID','txtField')">
-			
 				<b id="txtID1">Name:</b><input type="text" id="txtID" name="txtID"
 					value="<%=i.getIndustryName()%>"> <b id="txtID1">Field:</b><input
 					type="text" id="txtID2" name="txtField" value="<%=i.getField()%>">
-			
-			
 			<input type="submit" id="txtID1" name="update" value="Update">
 			<input name="navigate" value="update" type="hidden"><input
 				name="entityType" value="Industry" type="hidden"><input
 				name="origin" value=<%=origin%> type="hidden">
 		</form><td>
-
 					<td>
 		<form action="/HyggeClientProject/MergedServlet" method="delete">
 			<input type="submit" id="txtID1" name="submit" value="Delete">

@@ -22,7 +22,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-	color: #800080;
+	color: #ff3e3b;
 }
 </style>
 </head>

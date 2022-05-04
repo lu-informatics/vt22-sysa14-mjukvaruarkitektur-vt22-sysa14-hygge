@@ -34,9 +34,6 @@
   <p>Contact information: HyggeIncContact@gmail.com</p>
 </footer>
 </div>
-
-
-
 			<%
 			Education e = (Education) request.getAttribute("entity");
 			String origin = request.getAttribute("origin") != null ? (String) request.getAttribute("origin")

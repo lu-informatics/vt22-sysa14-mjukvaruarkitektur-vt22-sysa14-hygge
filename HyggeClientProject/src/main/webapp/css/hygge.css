@@ -117,7 +117,7 @@ margin-top: 16%;
 }
 
 input[type=submit]:hover {
-color: #800080;	
+color: #ff3e3b;	
 }
 
 #industries-form, #educations-form, #home-form, #about-form, #test-form, #search-form{	
@@ -137,23 +137,23 @@ font-weight: bold;
 
 }
 #industries-form:hover {
-	color: #800080;		
+	color: #ff3e3b;		
 }
 #educations-form:hover {
-	color: #800080;		
+	color: #ff3e3b;		
 }
 #home-form:hover {
-	color: #800080;		
+	color: #ff3e3b;		
 }
 #about-form:hover {
-	color: #800080;		
+	color: #ff3e3b;		
 }
 #test-form:hover {
-	color: #800080;		
+	color: #ff3e3b;		
 }
 
 #search-form:hover {
-	color: #800080;		
+	color: #ff3e3b;		
 }
 
 .education h2 {

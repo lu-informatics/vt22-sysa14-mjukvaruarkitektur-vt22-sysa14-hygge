@@ -2,16 +2,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>MyTestPage</title>
+<title>Hygge JUnit</title>
 </head>
 <body>
-<p>Här kan du skriva in ditt TestCase eller TestSuite:<br></p>
+<p>Enter a Test Case:<br></p>
 <form action="TestServlet" method="get" name="youTypeItForm">
 <input type="text" name="suite" size=60 value=/>
 <input type="submit" value="Run" />
 </form>
 <hr>
-<p>Här kan du välja en eller flera av följande test:<br></p>
+<p>Or, Choose one of the following:<br></p>
 <form action="TestServlet" method="get" name="youPickItForm">
 <select name="suite" size="1" multiple>
 <option value="hygge.ejb.client.FacadeTest">

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Hygge JUnit</title>
+</head>
+<body>
+<p>Enter a Test Case:<br></p>
+<form action="TestServlet" method="get" name="youTypeItForm">
+<input type="text" name="suite" size=60 value=/>
+<input type="submit" value="Run" />
+</form>
+<hr>
+<p>Or, Choose one of the following:<br></p>
+<form action="TestServlet" method="get" name="youPickItForm">
+<select name="suite" size="1" multiple>
+<option value="hygge.ejb.client.FacadeTest">
+hygge.ejb.client.FacadeTest</option>
+</select>
+
+<input type="submit" value="Run" />
+</form>
+</body>
+</html>

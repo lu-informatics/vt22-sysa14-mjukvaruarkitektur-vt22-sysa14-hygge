@@ -17,7 +17,9 @@ color: #FFE4E1;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+
 	font-family: 'poppins', times new roman;
+
 }
 
 .header {
@@ -53,6 +55,7 @@ margin: 10px 30px;
 nav ul li a, .menybar {
 	text-decoration: none;
 	color: #fff;
+
 	font-size: 17px;
 	letter-spacing: 1px;
 }
@@ -170,11 +173,3 @@ font-weight: bold;
     margin: 10px 30px;	
     	
 }
-
-
-
-
-
-
-
-

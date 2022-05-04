@@ -6,7 +6,6 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-
 <style>
 </style>
 <link rel="stylesheet" href="css/hygge.css">
@@ -135,8 +134,6 @@
 
 		</form>
 	</div>
-
-
 </body>
 
 </html>

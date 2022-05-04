@@ -4,6 +4,8 @@
 <html lang = "eng">
 
 <head>
+	<meta name= "viewport" content ="width=device-width, initial-scale=1.0">
+	<title>Hygge Inc</title>
 <style>
 aside { 
     position: absolute;
@@ -63,21 +65,19 @@ nav ul li a{
 	fron-size: 17px;
 	letter-spacing: 1px;
 }
-
-.text-box:hover{
+nav ul li a:hover{
+	color: #ff3e3b;
+}
+.text-box{
 	margin-top: 16%;
 	font-size: 22px;
-	color: #800080;
 
 }
-
+.text-box h1{
 	font-size: 85px;
 	font-weight: 600px;
 	line-height: 100px;
 	margin-bottom: 10px;
-
-	color: #800080;
-
 
 }
 .contact {
@@ -104,12 +104,11 @@ position: absolute;
 	padding: 5px 5px;
 	border-radius: 40px;	
 }
-
-.download img:hover{
+.download img{
 	width: 25px;
 	margin-left: 15px;
 	animation: move 2s linear infinite;
-	color: #800080;
+
 }
 @keyframes move{
 0&{
@@ -121,44 +120,23 @@ position: absolute;
 100%{
 	transform: translateY(-10px);
 }
-}
-input[type=submit]{
- font-weight: bold;
- font-family: times new roman;
- font-size: 30px;
-  background-color: rgba(0, 0, 0, 0);
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 0px 0px;
-  cursor: pointer;
- box-sizing: border-box;
- 
-
-
-
+input[type=text] {
+ text-decoration: none;
+	color: #fff;
+	fron-size: 17px;
+	letter-spacing: 1px;
 }
 
-input[type=submit]:hover {
-color: #ff3e3b;
-}
 
- 
 </style>
- <link rel="stylesheet" href="css/hygge.css">
-	<meta name= "viewport" content ="width=device-width, initial-scale=1.0">
-	<title>Hygge Inc</title>
-
 </head>
 <body>
-<main>
 <div class ="header">
 	<nav>
 		<img src = "https://scontent.xx.fbcdn.net/v/t1.15752-9/278463040_556781142533262_2520632013925055238_n.png?stp=dst-png_p206x206&_nc_cat=103&ccb=1-5&_nc_sid=aee45a&_nc_ohc=ruope7E6Ih0AX_5py1G&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVLL9P-Zxo_n9s0OhNJt0VPVIA9sPTpyogfMQDz2kGq5bA&oe=629379B0" class= "logo">
 
-<form action="/HyggeClientProject/MergedServlet" method="get"> 
 
+<form action="/HyggeClientProject/MergedServlet" method="get">
 		<input type="submit" name="submit" value="Home"><input
 			type="hidden" name="navigate" value="home">
 	</form>
@@ -180,20 +158,12 @@ color: #ff3e3b;
 			type="hidden" name="entityType" value="Industry">
 	</form>
 	
-	<form action="/HyggeClientProject/MergedServlet" method="get">
-		<input type="submit" name="submit" value="Test"><input
-			type="hidden" name="navigate" value="fetch"><input
-			type="hidden" name="entityType" value="Tests">
-	</form>
-
-</nav>
-	
+</nav>	
 <div class ="text-box">
 	<h1>Go on<br>Your First Date</h1>
 </div>
 <a href = "#" class= "download">DOWNLOAD THE APP<img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/279275934_4956982131024421_3508513496646403461_n.png?stp=dst-png_p206x206&_nc_cat=105&ccb=1-5&_nc_sid=aee45a&_nc_ohc=5q5bVbwbK-oAX9cOVUu&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKGP0XUfQksObxDCHlSiold805I5Bj6QxvCH4A244eLyw&oe=6293599B" width="20" height="20"></a>
 </div>
-
 <div class ="contact">
 <footer>
   <p>© 2022 Hygge Inc.</p>
@@ -238,16 +208,14 @@ color: #ff3e3b;
       </section> 
    </section> 
    <footer> 
-   </footer>
-   </main> 
-
+   </footer> 
 </body>
 </html>
 <script> 
 $(document).ready(function(){ 
         $.ajax({ 
              method: "GET", 
-       url: "http://api.ipstack.com/check?access_key=1886ccbbb23efa4df72901a0892f4be7",  
+       url: "http://api.ipstack.com/check?access_key=b96e07c0799629b46faa36b25c063ded",  
              error: ajaxReturn_Error,  
              success: ajaxReturn_Success 
         }) 
@@ -302,6 +270,3 @@ function ajaxWeatherReturn_Success(result, status, xhr) {
 </script>
 
     
-
-
-

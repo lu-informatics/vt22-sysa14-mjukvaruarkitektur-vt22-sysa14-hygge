@@ -38,6 +38,12 @@
 			type="hidden" name="navigate" value="fetch"><input
 			type="hidden" name="entityType" value="Industry">
 	</form>
+	<form action="/HyggeClientProject/MergedServlet" method="get">
+		<input type="submit" name="submit" value="Search"><input
+			type="hidden" name="navigate" value="search"><input
+			type="hidden" name="entityType" value="Education">
+			
+	</form>
 	<table>
 		<%
 		for (Education e : educations) {

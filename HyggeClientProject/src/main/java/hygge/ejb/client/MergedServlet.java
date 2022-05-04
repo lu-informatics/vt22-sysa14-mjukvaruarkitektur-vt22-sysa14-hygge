@@ -178,6 +178,12 @@ public class MergedServlet extends HttpServlet {
 		 * parameters, and persists it with the facade.
 		 */
 		if (entityType.equals("Industry")) {
+			if(facade.findByIndustryName(name)!=null) {
+				url="/Home.jsp";
+				dispatch(url,request,response);
+				return;
+			}
+			
 			Industry i = new Industry();
 			i.setIndustryName(name);
 			i.setField(request.getParameter("txtField"));
@@ -185,6 +191,12 @@ public class MergedServlet extends HttpServlet {
 			currentIndustry = i;
 			request.setAttribute("entity", i);
 		} else {
+			if(facade.findByEducationName(name)!=null) {
+				url="/Home.jsp";
+				dispatch(url,request,response);
+				return;
+			}
+			
 			Education e = new Education();
 			e.setEducationName(name);
 			e.setLocale(request.getParameter("txtLocale"));
@@ -209,7 +221,7 @@ public class MergedServlet extends HttpServlet {
 		 * sets the entity's values according to request parameters, then updates via
 		 * facade. finally, sets current object as "entity" attribute for dispatch
 		 */
-		if (entityType.equals("Industry")) {
+		if (entityType.equals("Industry")) { //TODO: error handling placeholder
 			currentIndustry.setIndustryName(id);
 			currentIndustry.setField(request.getParameter("txtField"));
 			facade.updateIndustry(currentIndustry);

@@ -71,7 +71,7 @@
 			</form>
 		</nav>
 		<div class="education text-box">
-			<h2>Edit Education</h2>
+			<h2>Manage Education</h2>
 			<br>
 
 		</div>
@@ -80,8 +80,8 @@
 				<tr>
 					<td><form action="/HyggeClientProject/MergedServlet" method="put">
 			
-				<b>Name:</b><input type="text" id="txtID1" name="txtID"
-					value="<%=e.getEducationName()%>"> <b>Locale:</b><input
+				<b id="txtID1">Name:</b><input type="text" id="txtID1" name="txtID"
+					value="<%=e.getEducationName()%>"> <b id="txtID1">Locale:</b><input
 					type="text" id="txtID1" name="txtLocale" value="<%=e.getLocale()%>">
 			
 			

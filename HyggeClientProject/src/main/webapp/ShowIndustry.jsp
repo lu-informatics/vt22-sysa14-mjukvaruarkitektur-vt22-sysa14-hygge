@@ -20,12 +20,12 @@
 			Industry i = (Industry) request.getAttribute("entity");
 			String origin = request.getAttribute("origin") != null ? (String) request.getAttribute("origin")
 					: (String) request.getParameter("origin");
-			String connectedIndustryDescription = "None";
+			String connectedEducationDescription = "None";
 			Set<Education> connectedEducations = (Set<Education>) request.getAttribute("connectedEntities");
 			if (connectedEducations != null && !connectedEducations.isEmpty()) {
-				connectedIndustryDescription = "";
+				connectedEducationDescription = "";
 				for (Education e: connectedEducations) {
-					connectedIndustryDescription += i.getIndustryName() + "<br>";
+					connectedEducationDescription += e.getEducationName() + "<br>";
 				}
 			}
 			%>
@@ -72,8 +72,8 @@
 				<tr>
 					<td><form action="/HyggeClientProject/MergedServlet" method="put">
 			
-				<b>Name:</b><input type="text" id="txtID" name="txtID"
-					value="<%=i.getIndustryName()%>"> <b>Field:</b><input
+				<b id="txtID1">Name:</b><input type="text" id="txtID" name="txtID"
+					value="<%=i.getIndustryName()%>"> <b id="txtID1">Field:</b><input
 					type="text" id="txtID2" name="txtField" value="<%=i.getField()%>">
 			
 			
@@ -101,7 +101,7 @@
 			</table>
 		
 		<p id="txtID1">Connected Industries:</p>
-		<p id="txtID1"><%=connectedIndustryDescription%></p>
+		<p id="txtID1"><%=connectedEducationDescription%></p>
 
 		<form action="/HyggeClientProject/MergedServlet"
 			method="manageEntityRelationship">

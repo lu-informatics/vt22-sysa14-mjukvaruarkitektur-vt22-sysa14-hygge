@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/hygge.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Hygge - Show Industries</title>
-
+<script>src="validation.js"</script>
 </head>
 
 <body>

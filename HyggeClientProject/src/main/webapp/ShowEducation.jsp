@@ -21,6 +21,12 @@
 			<img
 				src="https://scontent.xx.fbcdn.net/v/t1.15752-9/278463040_556781142533262_2520632013925055238_n.png?stp=dst-png_p206x206&_nc_cat=103&ccb=1-5&_nc_sid=aee45a&_nc_ohc=ruope7E6Ih0AX_5py1G&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVLL9P-Zxo_n9s0OhNJt0VPVIA9sPTpyogfMQDz2kGq5bA&oe=629379B0"
 				class="logo">
+				<div class ="contact">
+<footer>
+  <p>© 2022 Hygge Inc.</p>
+  <p>Contact information: HyggeIncContact@gmail.com</p>
+</footer>
+</div>
 
 
 
@@ -91,7 +97,7 @@
 			<input type="submit" id="update" name="update" value="Update">
 			<input name="navigate" value="update" type="hidden"><input
 				name="entityType" value="Education" type="hidden"><input
-				name="origin" value=<%=origin%> type="hidden">
+				name="origin" value="<%=origin%>" type="hidden">
 		</form><td>
 
 					<td>
@@ -99,12 +105,12 @@
 			<input type="submit" id="delete" name="submit" value="Delete">
 			<input name="navigate" value="delete" type="hidden"><input
 				name="entityType" value="Education" type="hidden"><input
-				name="origin" value=<%=origin%> type="hidden">
+				name="origin" value="<%=origin%>" type="hidden">
 		</form></td>
 
 					<td><form action="/HyggeClientProject/MergedServlet" method="service">
 			<input type="submit" id="back" name="submit" value="Back"> <input
-				name="navigate" value=<%=(origin != null ? "fetch" : "search")%>
+				name="navigate" value="<%=(origin != null ? "fetch" : "search")%>"
 				type="hidden"> <input name="entityType" value="Education"
 				type="hidden">
 		</form></td>
@@ -127,7 +133,7 @@
 			method="manageEntityRelationship">
 			<input type="text" name="txtIndustryName"><input
 				type="hidden" name="txtEducationName"
-				value=<%=e.getEducationName()%>> <input type="submit"
+				value="<%=e.getEducationName()%>"> <input type="submit"
 				name="submit" value="Attach"><input name="navigate"
 				value="manageRelationship" type="hidden"><input
 				name="operation" value="attach" type="hidden"><input

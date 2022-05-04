@@ -166,17 +166,22 @@ font-weight: bold;
 	font-weight: 600px;
 	line-height: 100px;
 	margin-bottom: 10px;
-	
-	
 }
 #back, #update, #delete {
 	display:inline;
     list-style: none;
-    margin: 10px 30px;	
-    	
+    margin: 10px 10px;	
+}
+#manage, #txtID, #submit, #txtID1, #txtID2 {	
+list-style: none;
+margin: 20px 10px;
+font-size: 24px;
+	
 }
 
-
+.create {
+	font-size:24px;
+}
 
 
 

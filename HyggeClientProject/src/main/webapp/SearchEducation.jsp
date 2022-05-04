@@ -15,7 +15,7 @@
 				<td><h2>Search Education:</h2></td>
 			</tr>
 			<tr>
-				<td><input type="text" name="txtID" size="25" maxlength="25">
+				<td><input type="text" name="txtID1" size="25" maxlength="25">
 					<input type="submit" name="submit" value="Send query" /></td>
 				<td></td>
 			</tr>

@@ -6,16 +6,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-
-
  <link rel="stylesheet" type="text/css" href= "css/hygge.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Hygge - Manage Industry</title>
 </head>
 
 <body>
-
+<main>
 	<div class="header">
 	<nav>
 		<img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/278463040_556781142533262_2520632013925055238_n.png?stp=dst-png_p206x206&amp;_nc_cat=103&amp;ccb=1-5&amp;_nc_sid=aee45a&amp;_nc_ohc=ruope7E6Ih0AX_5py1G&amp;_nc_ad=z-m&amp;_nc_cid=0&amp;_nc_ht=scontent.xx&amp;oh=03_AVLL9P-Zxo_n9s0OhNJt0VPVIA9sPTpyogfMQDz2kGq5bA&amp;oe=629379B0" class="logo">
@@ -77,7 +74,7 @@
 			
 				<b>Name:</b><input type="text" id="txtID" name="txtID"
 					value="<%=i.getIndustryName()%>"> <b>Field:</b><input
-					type="text" id="txtField" name="txtField" value="<%=i.getField()%>">
+					type="text" id="txtID2" name="txtField" value="<%=i.getField()%>">
 			
 			
 			<input type="submit" id="update" name="update" value="Update">
@@ -119,5 +116,6 @@
 
 		</form>
 	</div>
+	</main>
 </body>
 </html>

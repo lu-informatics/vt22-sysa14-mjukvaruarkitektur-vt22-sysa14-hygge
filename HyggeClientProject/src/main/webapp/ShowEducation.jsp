@@ -15,7 +15,7 @@
 
 </head>
 <body>
-
+<main>
 	<div class="header">
 		<nav>
 			<img
@@ -142,7 +142,7 @@
 		</form>
 	</div>
 
-
+</main>
 </body>
 
 </html>

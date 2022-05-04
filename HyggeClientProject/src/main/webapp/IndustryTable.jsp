@@ -53,7 +53,7 @@
 	<form action="/HyggeClientProject/MergedServlet" method="get">
 		<input type="submit" id = "search-form" name="submit" value="Search"><input
 			type="hidden" name="navigate" value="search"><input
-			type="hidden" name="entityType" value="Education">
+			type="hidden" name="entityType" value="Industry">
 	</form>
 	</nav>
 	<br><br><br><br><br><br><br>

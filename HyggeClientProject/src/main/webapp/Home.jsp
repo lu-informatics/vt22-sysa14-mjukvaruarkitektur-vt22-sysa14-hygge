@@ -63,16 +63,19 @@ nav ul li a{
 	fron-size: 17px;
 	letter-spacing: 1px;
 }
+
 .text-box:hover{
 	margin-top: 16%;
 	font-size: 22px;
 	color: #800080;
 
 }
+
 	font-size: 85px;
 	font-weight: 600px;
 	line-height: 100px;
 	margin-bottom: 10px;
+
 	color: #800080;
 
 }
@@ -89,7 +92,6 @@ position: absolute;
 
 }
 
-
 .download {
 	position: absolute;
 	right: 7%;
@@ -101,12 +103,12 @@ position: absolute;
 	padding: 5px 5px;
 	border-radius: 40px;	
 }
+
 .download img:hover{
 	width: 25px;
 	margin-left: 15px;
 	animation: move 2s linear infinite;
 	color: #800080;
-
 }
 @keyframes move{
 0&{
@@ -137,9 +139,6 @@ input[type=submit]:hover {
 color: #ff3e3b;
 }
 
-
-
- 
 </style>
  <link rel="stylesheet" href="css/hygge.css">
 	<meta name= "viewport" content ="width=device-width, initial-scale=1.0">
@@ -153,6 +152,7 @@ color: #ff3e3b;
 		<img src = "https://scontent.xx.fbcdn.net/v/t1.15752-9/278463040_556781142533262_2520632013925055238_n.png?stp=dst-png_p206x206&_nc_cat=103&ccb=1-5&_nc_sid=aee45a&_nc_ohc=ruope7E6Ih0AX_5py1G&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVLL9P-Zxo_n9s0OhNJt0VPVIA9sPTpyogfMQDz2kGq5bA&oe=629379B0" class= "logo">
 
 <form action="/HyggeClientProject/MergedServlet" method="get"> 
+
 		<input type="submit" name="submit" value="Home"><input
 			type="hidden" name="navigate" value="home">
 	</form>
@@ -180,7 +180,6 @@ color: #ff3e3b;
 			type="hidden" name="entityType" value="Tests">
 	</form>
 
-	
 </nav>
 	
 <div class ="text-box">
@@ -235,6 +234,7 @@ color: #ff3e3b;
    <footer> 
    </footer>
    </main> 
+
 </body>
 </html>
 <script> 

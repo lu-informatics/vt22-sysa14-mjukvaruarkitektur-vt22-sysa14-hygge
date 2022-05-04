@@ -9,6 +9,7 @@
  <link rel="stylesheet" type="text/css" href= "css/hygge.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Hygge - Show Industries</title>
+
 </head>
 
 <body>
@@ -51,18 +52,21 @@
 			type="hidden" name="entityType" value="Industry">
 	</form>
 	<form action="/HyggeClientProject/MergedServlet" method="get">
+
 		<input type="submit" id = "search-form" name="submit" value="Search"><input
 			type="hidden" name="navigate" value="search"><input
 			type="hidden" name="entityType" value="Industry">
 	</form>
 	</nav>
 	<br><br><br><br><br><br><br>
+
 	<table>
 		<%
 		for (Industry i : industries) {
 		%>
 		
 		<form action="/HyggeClientProject/MergedServlet" method="get">
+
 			<tr>
 				<td><input type="submit" id = "manage" name="submit" value="Manage">
 					<input name="navigate" value="fetch" type="hidden"> <input
@@ -73,6 +77,7 @@
 				<td><input type="text" id = "txtID1" name="txtField"
 					value="<%=i.getField()%>" readonly></td>
 			</tr>
+
 		</form>
 
 		<%

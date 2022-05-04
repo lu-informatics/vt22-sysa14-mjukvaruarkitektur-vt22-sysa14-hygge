@@ -13,10 +13,10 @@
 	<h2>Create New Industry:</h2>
 	<form action="/HyggeClientProject/IndustryServlet" method="post">
 		<p>
-			<input type="text" name="txtIndustryName">
+			<input type="text" name="txtIndustryName" placeholder="Sales">
 		</p>
 		<p>
-			<input type="text" name="txtField">
+			<input type="text" name="txtField" placeholder="Politican">
 		</p>
 		<input type="submit" name="submit" value="Create"> <input
 			name="operation" value="createindustry" type="hidden">

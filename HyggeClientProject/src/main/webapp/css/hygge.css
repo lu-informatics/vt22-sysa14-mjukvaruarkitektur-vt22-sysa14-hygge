@@ -17,6 +17,7 @@ color: #FFE4E1;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+
 	font-family: 'poppins', times new roman;
 }
 
@@ -53,6 +54,7 @@ margin: 10px 30px;
 nav ul li a, .menybar {
 	text-decoration: none;
 	color: #fff;
+
 	font-size: 17px;
 	letter-spacing: 1px;
 }
@@ -170,6 +172,7 @@ font-weight: bold;
 #back, #update, #delete {
 	display:inline;
     list-style: none;
+
     margin: 10px 10px;	
 }
 #manage, #txtID, #submit, #txtID1, #txtID2 {	

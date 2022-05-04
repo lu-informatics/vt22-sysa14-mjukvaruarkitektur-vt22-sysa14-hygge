@@ -118,7 +118,7 @@ input[type=submit]:hover {
 color: #800080;	
 }
 
-#industries-form, #educations-form, #home-form, #about-form, #test-form{	
+#industries-form, #educations-form, #home-form, #about-form, #test-form, #search-form{	
 font-weight: bold;
  font-family: times new roman;
  font-size: 30px;
@@ -149,6 +149,11 @@ font-weight: bold;
 #test-form:hover {
 	color: #800080;		
 }
+
+#search-form:hover {
+	color: #800080;		
+}
+
 .education h2 {
 	font-size: 40px;
 	font-weight: 20px;
@@ -170,6 +175,8 @@ font-weight: bold;
     margin: 10px 30px;	
     	
 }
+
+
 
 
 

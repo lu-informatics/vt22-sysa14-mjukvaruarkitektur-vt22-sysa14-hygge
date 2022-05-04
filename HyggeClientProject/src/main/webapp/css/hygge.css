@@ -19,7 +19,6 @@ color: #FFE4E1;
 	box-sizing: border-box;
 
 	font-family: 'poppins', times new roman;
-
 }
 
 .header {
@@ -121,7 +120,7 @@ input[type=submit]:hover {
 color: #800080;	
 }
 
-#industries-form, #educations-form, #home-form, #about-form, #test-form{	
+#industries-form, #educations-form, #home-form, #about-form, #test-form, #search-form{	
 font-weight: bold;
  font-family: times new roman;
  font-size: 30px;
@@ -152,6 +151,11 @@ font-weight: bold;
 #test-form:hover {
 	color: #800080;		
 }
+
+#search-form:hover {
+	color: #800080;		
+}
+
 .education h2 {
 	font-size: 40px;
 	font-weight: 20px;
@@ -164,12 +168,28 @@ font-weight: bold;
 	font-weight: 600px;
 	line-height: 100px;
 	margin-bottom: 10px;
-	
-	
 }
 #back, #update, #delete {
 	display:inline;
     list-style: none;
-    margin: 10px 30px;	
-    	
+
+    margin: 10px 10px;	
 }
+#manage, #txtID, #submit, #txtID1, #txtID2 {	
+list-style: none;
+margin: 20px 10px;
+font-size: 24px;
+	
+}
+
+.create {
+	font-size:24px;
+}
+
+
+
+
+
+
+
+

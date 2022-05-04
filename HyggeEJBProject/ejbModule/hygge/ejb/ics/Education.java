@@ -57,4 +57,5 @@ public class Education implements Serializable {
 		return (educationName.equals(other.getEducationName())&&locale.equals(other.getLocale()));
 	}
 
+
 }

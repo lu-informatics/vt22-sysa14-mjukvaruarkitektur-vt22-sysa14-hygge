@@ -78,7 +78,6 @@ nav ul li a{
 
 	color: #800080;
 
-
 }
 .contact {
 position: absolute;
@@ -134,17 +133,12 @@ input[type=submit]{
   margin: 0px 0px;
   cursor: pointer;
  box-sizing: border-box;
- 
-
-
-
 }
 
 input[type=submit]:hover {
 color: #ff3e3b;
 }
 
- 
 </style>
  <link rel="stylesheet" href="css/hygge.css">
 	<meta name= "viewport" content ="width=device-width, initial-scale=1.0">
